@@ -24,6 +24,8 @@ namespace Client.Data
         //public SerializedDictionary<TutorialStep, bool> TutorDependenceByStep;
         public List<TutorialData> TutorialData;
         public Dictionary<TutorialStep, TutorialData> TutorialDataByStep;
+        
+        public List<TadpoleData> TadpoleData;
 
         [Header("Tags & Layers")] [Group("Tags")] [Tag]
         public string GroundTag;
@@ -32,6 +34,7 @@ namespace Client.Data
         [Group("Layers")] public LayerMask PlayerMask;
         [Group("Layers")] public LayerMask BlocksMask;
         [Group("Layers")] public string CoastTag;
+        [Group("Layers")] public string PuddleTag;
 
         public int GetPlayerLayer => Utility.ToLayer(PlayerMask);
         public int GetBlocksLayer => Utility.ToLayer(BlocksMask);

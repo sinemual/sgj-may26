@@ -29,6 +29,7 @@ namespace Data
         public int RaceStep;
         public int PlaceInRace;
         public int FinishersCounter;
+        
 
         public void InjectData(SharedData sharedData) => base.SharedData = sharedData;
 

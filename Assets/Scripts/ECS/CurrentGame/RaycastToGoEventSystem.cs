@@ -39,6 +39,11 @@ namespace Client
         }
     }
 
+    /*public struct PlaceCatchRequest
+    {
+        public Vector3 Position;
+    }*/
+
     public struct GoRequest
     {
         public Vector3 Position;

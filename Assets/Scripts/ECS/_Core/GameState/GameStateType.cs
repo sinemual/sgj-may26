@@ -5,8 +5,10 @@ namespace Client.Data
         None = 0,
         Init = 1,
         GameOver = 4,
-        LevelComplete = 5,
         Pause = 6,
-        MainMenu = 7
+        Win = 10,
+        Lose = 11,
+        CatchPuddle = 12
+        
     }
 }

@@ -132,6 +132,14 @@ namespace Client
                 //---Race---
                 .Add(new WinSystem())
                 .Add(new LoseSystem())
+                //---Catch----
+                .Add(new RaycastToPlaceCatchSystem())
+                .Add(new UpCatchSystem())
+                .Add(new TryCatchSystem())
+                .Add(new CaviarCatchSystem())
+                //---Caviar----
+                .Add(new CaviarMoveSystem())
+                .Add(new CaviarSpawnSystem())
                 //---Currency---
                 .Add(new CalculateCurrencySystem())
                 .Add(new UserInterfaceCurrencySystem())
@@ -175,6 +183,7 @@ namespace Client
                 .Add(new DirectionalLaunchSystem())
                 .Add(new HeroTriggerSystem())
                 .Add(new VelocityMovingSystem())
+                .Add(new VelocityPositionMovingSystem())
                 .Add(new PhysicForceAddSystem())
                 .Add(new FinishTriggerSystem())
                 //---OneFrames---

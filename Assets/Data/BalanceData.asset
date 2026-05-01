@@ -31,15 +31,17 @@ MonoBehaviour:
   <DistanceToTriggerInteraction>k__BackingField: 1.25
   <TimeToTriggerInteraction>k__BackingField: 1
   <ReloadingMovementTime>k__BackingField: 0.1
-  <ThinkingTime>k__BackingField: 5
+  <ThinkingTime>k__BackingField: 2
   <RandomTargetRadius>k__BackingField: 5
   <BotRandomTargetRadius>k__BackingField: 0
-  <BotCheckPointRadius>k__BackingField: 2
+  <BotCheckPointRadius>k__BackingField: 34.53
+  <DebugSpeed>k__BackingField: 4.45
+  <CaviarMoveSpeed>k__BackingField: 0.59
   <CharacterRotateSpeed>k__BackingField: 97.79
   <LaunchDropItemForce>k__BackingField: {x: 150, y: 200}
   <ExplosionRadius>k__BackingField: 3
   <ExplosionForce>k__BackingField: 3
-  <DropItemSpeed>k__BackingField: 3
+  <DropItemSpeed>k__BackingField: 55
   <PushForceCoef>k__BackingField: 3
   <IsTestUpgrades>k__BackingField: 0
   <IsShowUpgradesButton>k__BackingField: 0

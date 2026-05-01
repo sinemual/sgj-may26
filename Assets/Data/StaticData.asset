@@ -15,6 +15,7 @@ MonoBehaviour:
   PrefabData:
     EmptyPrefab: {fileID: 4726771855065635164, guid: 3ff7e0a8cbe349a4ca5f1e5ceddf5046,
       type: 3}
+    CatchPrefab: {fileID: 0}
     BloodVfxPrefab: {fileID: 3869680565941660763, guid: f945a8958f21b6b43b170b4c338ee984,
       type: 3}
     DamageWorldUiPrefab: {fileID: 558157366606395816, guid: 020f66d112090564c9130ad8680233fa,
@@ -33,6 +34,8 @@ MonoBehaviour:
   LevelLooped: {fileID: 11400000, guid: 3e99616bc3f54384bb4214083a45aa10, type: 2}
   TutorialData:
   - {fileID: 11400000, guid: 5cb533bd231c7f7418a7aaf158fe9df0, type: 2}
+  TadpoleData:
+  - {fileID: 11400000, guid: 46fed4d3a11befa4e91968bc232740b6, type: 2}
   GroundTag: 
   RaycastMask:
     serializedVersion: 2
@@ -44,3 +47,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   CoastTag: Coast
+  PuddleTag: Puddle
