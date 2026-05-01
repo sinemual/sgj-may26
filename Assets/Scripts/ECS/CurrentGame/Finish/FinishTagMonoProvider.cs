@@ -1,10 +1,3 @@
-﻿using System;
-
-public class FinishTagMonoProvider : MonoProvider<FinishTagProvider>
-{
-}
-
-[Serializable]
-public struct FinishTagProvider
+﻿public class FinishTagMonoProvider : MonoProvider<FinishTagProvider>
 {
 }

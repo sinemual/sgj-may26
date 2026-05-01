@@ -29,6 +29,9 @@ namespace Data
         [field: SerializeField] public float ReloadingMovementTime { get; private set; }
         [field: SerializeField] public float ThinkingTime { get; private set; }
         [field: SerializeField] public float RandomTargetRadius { get; private set; }
+        [field: SerializeField] public float BotRandomTargetRadius { get; private set; }
+        [field: SerializeField] public float BotCheckPointRadius { get; private set; }
+        [field: SerializeField] public float DebugSpeed { get; private set; }
 
         [Header("Character")]
         [field: SerializeField]

@@ -49,6 +49,8 @@ namespace Client
             }
         }
     }
+    
+    
 
 
     public struct PickupState : IEcsIgnoreInFilter

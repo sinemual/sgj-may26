@@ -33,7 +33,9 @@ MonoBehaviour:
   <ReloadingMovementTime>k__BackingField: 0.1
   <ThinkingTime>k__BackingField: 5
   <RandomTargetRadius>k__BackingField: 5
-  <CharacterRotateSpeed>k__BackingField: 126.27
+  <BotRandomTargetRadius>k__BackingField: 0
+  <BotCheckPointRadius>k__BackingField: 2
+  <CharacterRotateSpeed>k__BackingField: 97.79
   <LaunchDropItemForce>k__BackingField: {x: 150, y: 200}
   <ExplosionRadius>k__BackingField: 3
   <ExplosionForce>k__BackingField: 3

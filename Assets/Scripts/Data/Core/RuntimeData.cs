@@ -23,6 +23,12 @@ namespace Data
         
         public bool IsWeHaveInternetTime;
         public bool IsLoopedLevel;
+        
+        
+        public bool IsCurrentRaceFinishedForPlayer;
+        public int RaceStep;
+        public int PlaceInRace;
+        public int FinishersCounter;
 
         public void InjectData(SharedData sharedData) => base.SharedData = sharedData;
 

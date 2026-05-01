@@ -9,8 +9,9 @@ namespace Client
     {
         private SharedData _data;
         private EcsWorld _world;
-        
+
         private EcsFilter<RaycastEvent> _filter;
+        private EcsFilter<TadpoleProvider, PlayerTagProvider> _playerFilter;
 
         public void Run()
         {
@@ -22,7 +23,17 @@ namespace Client
                 if (raycastEvent.GameObject.CompareTag(_data.StaticData.CoastTag))
                 {
                     _world.NewEntity().Get<GoEvent>().Position = raycastEvent.HitPoint.SetY(0);
-                    _world.NewEntity().Get<GoRequest>().Position = raycastEvent.HitPoint.SetY(0);
+
+                    foreach (var idz in _playerFilter)
+                    {
+                        ref var playerEntity = ref _playerFilter.GetEntity(idz);
+
+                        if (raycastEvent.GameObject.CompareTag(_data.StaticData.CoastTag))
+                        {
+                            playerEntity.Get<GoRequest>().Position = raycastEvent.HitPoint.SetY(0);
+                            _data.SceneData.PlayerTarget.position = raycastEvent.HitPoint.SetY(0);
+                        }
+                    }
                 }
             }
         }

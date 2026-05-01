@@ -123,11 +123,15 @@ namespace Client
                 .Add(new TapScreenRaycastSystem())
                 .Add(new RaycastToGoEventSystem())
                 //---Tadpole Race---
+                .Add(new InitTadpoleSystem())
+                .Add(new TadpoleBotGoSystem())
                 .Add(new TadpoleTargetSystem())
                 .Add(new TadpoleMovementSystem())
                 .Add(new TadpoleRotationSystem())
                 //---Tadpole In Jar---
-                
+                //---Race---
+                .Add(new WinSystem())
+                .Add(new LoseSystem())
                 //---Currency---
                 .Add(new CalculateCurrencySystem())
                 .Add(new UserInterfaceCurrencySystem())
@@ -144,6 +148,8 @@ namespace Client
                 .OneFrame<StepSoundEvent>()
                 .OneFrame<SpendCurrncyEvent>()
                 .OneFrame<TutorialCompleteEvent>()
+                .OneFrame<WinEvent>()
+                .OneFrame<LoseEvent>()
                 //---Injects---
                 .Inject(this) // for coroutine runner
                 .Inject(data)
@@ -170,6 +176,7 @@ namespace Client
                 .Add(new HeroTriggerSystem())
                 .Add(new VelocityMovingSystem())
                 .Add(new PhysicForceAddSystem())
+                .Add(new FinishTriggerSystem())
                 //---OneFrames---
                 .OneFrame<OnCollisionEnterEvent>()
                 .OneFrame<OnCollisionStayEvent>()

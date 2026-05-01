@@ -25,7 +25,7 @@ namespace Client
                 ref var target = ref entity.Get<Target>().Value;
 
                 //animator.SetBool(Animations.IsRun, false);
-                entityRb.AddForce(entityGo.transform.forward, ForceMode.Force);
+                entityRb.AddForce(entityGo.transform.forward * _data.BalanceData.DebugSpeed, ForceMode.Force);
                 //entityRb.linearVelocity = entityGo.transform.forward;
                 entity.Get<Timer<ReloadingTimer>>().Value =_data.BalanceData.ReloadingMovementTime;
             }
