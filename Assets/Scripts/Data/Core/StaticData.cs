@@ -26,6 +26,7 @@ namespace Client.Data
         public Dictionary<TutorialStep, TutorialData> TutorialDataByStep;
         
         public List<TadpoleData> TadpoleData;
+        public List<ItemData> ItemData;
 
         [Header("Tags & Layers")] [Group("Tags")] [Tag]
         public string GroundTag;

@@ -31,7 +31,6 @@ namespace Client
                 
                 _data.SaveData.CatchCounter += 1;
                 
-                
                 _prefabFactory.Despawn(ref caviarEntity);
             }
         }

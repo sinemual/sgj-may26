@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Client
 {
-    public class RaycastToPlaceCatchSystem : IEcsRunSystem
+    public class CatchRaycastSystem : IEcsRunSystem
     {
         private SharedData _data;
         private EcsWorld _world;

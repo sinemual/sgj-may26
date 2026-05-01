@@ -1,4 +1,6 @@
-﻿using Data.Base;
+﻿using AYellowpaper.SerializedCollections;
+using Client.Data.Core;
+using Data.Base;
 using UnityEngine;
 
 namespace Data
@@ -33,6 +35,7 @@ namespace Data
         [field: SerializeField] public float BotCheckPointRadius { get; private set; }
         [field: SerializeField] public float DebugSpeed { get; private set; }
         [field: SerializeField] public float CaviarMoveSpeed { get; private set; }
+        [field: SerializeField] public SerializedDictionary<ItemType, float> SpawnItemChance { get; private set; }
 
         [Header("Character")]
         [field: SerializeField]

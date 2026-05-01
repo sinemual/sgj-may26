@@ -1,4 +1,5 @@
-﻿using Client.Data.Core;
+﻿using Client.Data;
+using Client.Data.Core;
 using Client.ECS.CurrentGame.Hit.Systems;
 using Client.Factories;
 using Extensions;
@@ -16,8 +17,8 @@ namespace Client
 
         public void Run()
         {
-            /*if(_data.RuntimeData.CurrentGameStateType != GameStateType.CatchPuddle)
-                return;*/
+            if(_data.RuntimeData.CurrentGameStateType != GameStateType.CatchingStep)
+                return;
             foreach (var idx in _filter)
             {
                 ref var entity = ref _filter.GetEntity(idx);

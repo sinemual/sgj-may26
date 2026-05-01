@@ -34,7 +34,7 @@ namespace Client
                 random = random.SetY(0.0f);
                 Vector3 target = _data.SceneData.BotPath[currentPoint].position + random;
 
-                entity.Get<GoRequest>().Position = target;
+                entity.Get<LureRequest>().Position = target;
                 
                 _data.SceneData.BotTarget.position = target;
             }

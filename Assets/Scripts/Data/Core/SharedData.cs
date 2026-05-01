@@ -29,7 +29,7 @@ namespace Client.Data.Core
 
             RuntimeData.InjectData(this);
             SaveData.ResetToDefaults();
-            SaveData.BindData(BalanceData.StartMoney, StaticData.TutorialData);
+            SaveData.BindData(BalanceData.StartMoney, StaticData.TutorialData, StaticData.ItemData);
             StaticData.InitComfortableData();
 
             Load();

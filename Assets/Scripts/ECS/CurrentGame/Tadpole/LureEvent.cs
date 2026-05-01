@@ -2,7 +2,7 @@
 
 namespace Client
 {
-    public struct GoEvent
+    public struct LureEvent
     {
         public Vector3 Position;
     }

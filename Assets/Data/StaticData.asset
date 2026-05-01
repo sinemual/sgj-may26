@@ -36,6 +36,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5cb533bd231c7f7418a7aaf158fe9df0, type: 2}
   TadpoleData:
   - {fileID: 11400000, guid: 46fed4d3a11befa4e91968bc232740b6, type: 2}
+  ItemData:
+  - {fileID: 11400000, guid: 674f55d637d2bae439ca8451859649e8, type: 2}
   GroundTag: 
   RaycastMask:
     serializedVersion: 2

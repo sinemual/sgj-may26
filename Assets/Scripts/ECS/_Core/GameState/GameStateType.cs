@@ -8,7 +8,9 @@ namespace Client.Data
         Pause = 6,
         Win = 10,
         Lose = 11,
-        CatchPuddle = 12
+        CatchingStep = 12,
+        GatheringStep = 13,
+        HomeStep = 14
         
     }
 }

@@ -121,7 +121,7 @@ namespace Client
                 .Add(new GameOverSystem())
                 //---Go Event---
                 .Add(new TapScreenRaycastSystem())
-                .Add(new RaycastToGoEventSystem())
+                .Add(new LureRaycastSystem())
                 //---Tadpole Race---
                 .Add(new InitTadpoleSystem())
                 .Add(new TadpoleBotGoSystem())
@@ -133,13 +133,17 @@ namespace Client
                 .Add(new WinSystem())
                 .Add(new LoseSystem())
                 //---Catch----
-                .Add(new RaycastToPlaceCatchSystem())
+                .Add(new CatchRaycastSystem())
                 .Add(new UpCatchSystem())
                 .Add(new TryCatchSystem())
                 .Add(new CaviarCatchSystem())
                 //---Caviar----
                 .Add(new CaviarMoveSystem())
                 .Add(new CaviarSpawnSystem())
+                //---Gathering---
+                .Add(new GatheringSpawnItemSystem())
+                .Add(new GatheringRaycastSystem())
+                .Add(new GatheringSystem())
                 //---Currency---
                 .Add(new CalculateCurrencySystem())
                 .Add(new UserInterfaceCurrencySystem())
@@ -150,7 +154,7 @@ namespace Client
                 .OneFrame<GameStateChangedEvent>()
                 .OneFrame<DeathEvent>()
                 .OneFrame<MovingCompleteEvent>()
-                .OneFrame<GoEvent>()
+                .OneFrame<LureEvent>()
                 .OneFrame<AroundMovingCompleteEvent>()
                 .OneFrame<EarnCurrencyEvent>()
                 .OneFrame<StepSoundEvent>()

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Client
 {
-    public class RaycastToGoEventSystem : IEcsRunSystem
+    public class LureRaycastSystem : IEcsRunSystem
     {
         private SharedData _data;
         private EcsWorld _world;
@@ -22,7 +22,7 @@ namespace Client
 
                 if (raycastEvent.GameObject.CompareTag(_data.StaticData.CoastTag))
                 {
-                    _world.NewEntity().Get<GoEvent>().Position = raycastEvent.HitPoint.SetY(0);
+                    _world.NewEntity().Get<LureEvent>().Position = raycastEvent.HitPoint.SetY(0);
 
                     foreach (var idz in _playerFilter)
                     {
@@ -30,7 +30,7 @@ namespace Client
 
                         if (raycastEvent.GameObject.CompareTag(_data.StaticData.CoastTag))
                         {
-                            playerEntity.Get<GoRequest>().Position = raycastEvent.HitPoint.SetY(0);
+                            playerEntity.Get<LureRequest>().Position = raycastEvent.HitPoint.SetY(0);
                             _data.SceneData.PlayerTarget.position = raycastEvent.HitPoint.SetY(0);
                         }
                     }
@@ -44,7 +44,7 @@ namespace Client
         public Vector3 Position;
     }*/
 
-    public struct GoRequest
+    public struct LureRequest
     {
         public Vector3 Position;
     }

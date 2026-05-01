@@ -26,11 +26,11 @@ namespace Client
                 random = random.SetY(0.0f);
                 Vector3 target = entityGo.transform.position + random;
 
-                if (entity.Has<GoRequest>())
+                if (entity.Has<LureRequest>())
                 {
-                    ref var goEventPosition = ref entity.Get<GoRequest>().Position;
+                    ref var goEventPosition = ref entity.Get<LureRequest>().Position;
                     target = goEventPosition;
-                    entity.Del<GoRequest>();
+                    entity.Del<LureRequest>();
                 }
 
                 entity.Get<Target>().Value = target;

@@ -37,6 +37,10 @@ MonoBehaviour:
   <BotCheckPointRadius>k__BackingField: 34.53
   <DebugSpeed>k__BackingField: 4.45
   <CaviarMoveSpeed>k__BackingField: 0.59
+  <SpawnItemChance>k__BackingField:
+    _serializedList:
+    - Key: 3
+      Value: 0
   <CharacterRotateSpeed>k__BackingField: 97.79
   <LaunchDropItemForce>k__BackingField: {x: 150, y: 200}
   <ExplosionRadius>k__BackingField: 3
