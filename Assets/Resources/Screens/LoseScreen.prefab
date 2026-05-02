@@ -276,11 +276,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LoseScreen
   ScreenType: 0
   SortingPriority: 0
-  moneyText: {fileID: 0}
-  progressText: {fileID: 0}
-  pauseButton: {fileID: 0}
-  levelText: {fileID: 0}
-  levelProgressMoveBarFill: {fileID: 0}
+  placeInRaceText: {fileID: 2785360641692639733}
+  goToHomeButton: {fileID: 4583300077750466734}
 --- !u!1 &7405104804333865395
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +292,7 @@ GameObject:
   - component: {fileID: 4583300077750466734}
   - component: {fileID: 2965191179843028406}
   m_Layer: 5
-  m_Name: NextButton
+  m_Name: GoToHomeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

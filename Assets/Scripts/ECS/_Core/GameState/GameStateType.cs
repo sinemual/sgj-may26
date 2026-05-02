@@ -10,7 +10,9 @@ namespace Client.Data
         Lose = 11,
         CatchingStep = 12,
         GatheringStep = 13,
-        HomeStep = 14
+        HomeStep = 14,
+        RaceStep = 15,
+        GameEnd = 16
         
     }
 }

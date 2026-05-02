@@ -26,7 +26,10 @@ namespace Client.Data
         public Dictionary<TutorialStep, TutorialData> TutorialDataByStep;
         
         public List<TadpoleData> TadpoleData;
+        public Dictionary<TadpoleType, TadpoleData> TadpoleDataByType;
+        
         public List<ItemData> ItemData;
+        public Dictionary<IngredientType, ItemData> IngredientDataByType;
 
         [Header("Tags & Layers")] [Group("Tags")] [Tag]
         public string GroundTag;
@@ -52,6 +55,14 @@ namespace Client.Data
             TutorialDataByStep = new Dictionary<TutorialStep, TutorialData>();
             foreach (var tutrData in TutorialData)
                 TutorialDataByStep.Add(tutrData.TutorialStep, tutrData);
+            
+            TadpoleDataByType = new Dictionary<TadpoleType, TadpoleData>();
+            foreach (var tadpoleData in TadpoleData)
+                TadpoleDataByType.Add(tadpoleData.TadpoleType, tadpoleData);
+            
+            IngredientDataByType = new Dictionary<IngredientType, ItemData>();
+            foreach (var itemData in ItemData)
+                IngredientDataByType.Add(itemData.IngredientType, itemData);
         }
     }
 }

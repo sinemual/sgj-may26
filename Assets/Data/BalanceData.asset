@@ -34,13 +34,19 @@ MonoBehaviour:
   <ThinkingTime>k__BackingField: 2
   <RandomTargetRadius>k__BackingField: 5
   <BotRandomTargetRadius>k__BackingField: 0
-  <BotCheckPointRadius>k__BackingField: 34.53
-  <DebugSpeed>k__BackingField: 4.45
+  <BotCheckPointRadius>k__BackingField: 3
+  <DebugSpeed>k__BackingField: 1.4
   <CaviarMoveSpeed>k__BackingField: 0.59
-  <SpawnItemChance>k__BackingField:
+  <SpawnItemChanceByType>k__BackingField:
+    _serializedList: []
+  <RaceParticipantsAmountByStep>k__BackingField:
     _serializedList:
-    - Key: 3
-      Value: 0
+    - Key: 0
+      Value: 3
+    - Key: 1
+      Value: 3
+    - Key: 2
+      Value: 3
   <CharacterRotateSpeed>k__BackingField: 97.79
   <LaunchDropItemForce>k__BackingField: {x: 150, y: 200}
   <ExplosionRadius>k__BackingField: 3

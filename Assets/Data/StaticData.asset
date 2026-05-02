@@ -15,7 +15,14 @@ MonoBehaviour:
   PrefabData:
     EmptyPrefab: {fileID: 4726771855065635164, guid: 3ff7e0a8cbe349a4ca5f1e5ceddf5046,
       type: 3}
-    CatchPrefab: {fileID: 0}
+    TrapPrefab: {fileID: 5658046898197033560, guid: 97a5b96390d09ce4a834f10c860169ac,
+      type: 3}
+    GatheringStepPrefab: {fileID: 4049880481849147451, guid: 2fbfe536b6e99274aa5a9fdad6d9fc83,
+      type: 3}
+    CatchingStepPrefab: {fileID: 1208916660068585796, guid: 003894d274d6a3f44ae1d455220ee71d,
+      type: 3}
+    HomeStepPrefab: {fileID: 4416968778790806733, guid: e61e11024598f254f8c925801e323d4b,
+      type: 3}
     BloodVfxPrefab: {fileID: 3869680565941660763, guid: f945a8958f21b6b43b170b4c338ee984,
       type: 3}
     DamageWorldUiPrefab: {fileID: 558157366606395816, guid: 020f66d112090564c9130ad8680233fa,
@@ -30,7 +37,7 @@ MonoBehaviour:
   Levels:
   - {fileID: 11400000, guid: dd01a2be1587dc349a7f580a45a33f02, type: 2}
   - {fileID: 11400000, guid: cefa2f895f2d86f44b4cd8ec30409c6d, type: 2}
-  - {fileID: 11400000, guid: 3e99616bc3f54384bb4214083a45aa10, type: 2}
+  - {fileID: 11400000, guid: 5d4c49dde9c318f4aae560e05313ed45, type: 2}
   LevelLooped: {fileID: 11400000, guid: 3e99616bc3f54384bb4214083a45aa10, type: 2}
   TutorialData:
   - {fileID: 11400000, guid: 5cb533bd231c7f7418a7aaf158fe9df0, type: 2}

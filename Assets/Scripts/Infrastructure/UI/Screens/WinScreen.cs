@@ -7,48 +7,27 @@ using UnityEngine.UI;
 
 public class WinScreen : BaseScreen
 {
-    [SerializeField] private TextMeshProUGUI moneyText;
-    [SerializeField] private TextMeshProUGUI progressText;
-    [SerializeField] private UIButton pauseButton;
+    [SerializeField] private UIButton goToHomeButton;
+    [SerializeField] private UIButton nextStepButton;
 
-    [Header("Level Progress Bar")] [SerializeField]
-    private TextMeshProUGUI levelText;
+    public event Action GoToHomeButtonClick;
+    public event Action NextStepButtonClick;
 
-    [SerializeField] private Image levelProgressMoveBarFill;
+    public UIButton GoToHomeButton => goToHomeButton;
+    public UIButton NextStepButton => nextStepButton;
 
-    public event Action PauseButtonClick;
     protected override void ManualStart()
     {
-        pauseButton.Clicked += OnPauseButtonClick;
+        GoToHomeButton.Clicked += OnGoToHomeButtonClick;
+        NextStepButton.Clicked += OnNextStepButtonClick;
         ShowScreen += UpdateView;
     }
 
     private void UpdateView()
     {
     }
-
-    private void OnPauseButtonClick() => PauseButtonClick?.Invoke();
-
-    public void UpdateMoneyText(int moneyAmount)
-    {
-        //moneyText.text = $"{Utility.Format(moneyCount)}"; // money sprite
-        int currentMoney = moneyAmount;
-
-        Tween.Custom(
-            startValue: (float)currentMoney,
-            endValue: (float)moneyAmount,
-            duration: 0.3f,
-            onValueChange: value => moneyText.text = $"{value:0}",
-            ease: Ease.OutQuad
-        );
-
-        Tween.PunchScale(
-            target: moneyText.transform,
-            strength: Vector3.one * 0.1f,
-            duration: 0.15f
-        );
-    }
-
-    public void UpdateLevelText(int level) => levelText.text = $"Level {level + 1}";
-    public void UpdateLevelText(string levelName) => levelText.text = $"{levelName}";
+    
+    private void OnGoToHomeButtonClick() => GoToHomeButtonClick?.Invoke();
+    private void OnNextStepButtonClick() => NextStepButtonClick?.Invoke();
+    
 }

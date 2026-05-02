@@ -11,7 +11,7 @@ namespace Client
         private EcsWorld _world;
 
         private EcsFilter<RaycastEvent> _filter;
-        private EcsFilter<TadpoleProvider, PlayerTagProvider> _playerFilter;
+        private EcsFilter<TadpoleProvider, PlayerTag> _playerFilter;
 
         public void Run()
         {

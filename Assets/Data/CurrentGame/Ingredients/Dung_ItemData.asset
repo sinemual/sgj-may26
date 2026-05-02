@@ -13,17 +13,28 @@ MonoBehaviour:
   m_Name: Dung_ItemData
   m_EditorClassIdentifier: Assembly-CSharp::Client.Data.Equip.ItemData
   Id: dung_itemdata
-  ItemType: 3
+  IngredientType: 3
   Rarity: 0
-  ItemName: 
+  ItemName: Dung
   ItemDescription: 
   Price: 0
   Level: 0
   IsNotSale: 0
   ItemView:
-    ItemSprite: {fileID: 0}
+    ItemSprite: {fileID: 21300000, guid: ad4148593b05d0f47980774815c325fe, type: 3}
     ItemPrefab: {fileID: 1660273857823092328, guid: a3bc2c624ee5cc041bdf297f64575a14,
       type: 3}
     DropItemPrefab: {fileID: 1660273857823092328, guid: a3bc2c624ee5cc041bdf297f64575a14,
       type: 3}
   Size: {x: 0, y: 0, z: 0}
+  StatType: 0
+  StatModifierType: 0
+  StatModifierValue:
+    growthType: 0
+    maxValue: 100
+    minValue: 0
+    isRounding: 1
+    roundingMultiple: 1
+    maxLevel: 20
+    customValues: []
+    testLevel: 0

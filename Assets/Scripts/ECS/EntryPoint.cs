@@ -98,6 +98,7 @@ namespace Client
                 //---GameState---
                 .Add(new InitGameSystem())
                 .Add(new SetGameStateSystem())
+                .Add(new UserInterfaceByGameStateSystem())
                 //---General---
                 .Add(new VibrationSystem())
                 .Add(new AudioSystem())
@@ -123,6 +124,7 @@ namespace Client
                 .Add(new TapScreenRaycastSystem())
                 .Add(new LureRaycastSystem())
                 //---Tadpole Race---
+                .Add(new SpawnRaceTadpoleSystem())
                 .Add(new InitTadpoleSystem())
                 .Add(new TadpoleBotGoSystem())
                 .Add(new TadpoleTargetSystem())
@@ -132,7 +134,9 @@ namespace Client
                 //---Race---
                 .Add(new WinSystem())
                 .Add(new LoseSystem())
+                .Add(new StartRaceSystem())
                 //---Catch----
+                .Add(new GoToCatchingSystem())
                 .Add(new CatchRaycastSystem())
                 .Add(new UpCatchSystem())
                 .Add(new TryCatchSystem())
@@ -141,9 +145,18 @@ namespace Client
                 .Add(new CaviarMoveSystem())
                 .Add(new CaviarSpawnSystem())
                 //---Gathering---
+                .Add(new GoToGatheringSystem())
                 .Add(new GatheringSpawnItemSystem())
                 .Add(new GatheringRaycastSystem())
                 .Add(new GatheringSystem())
+                //---Home---
+                .Add(new GoToHomeSystem())
+                .Add(new FeedSystem())
+                .Add(new AddIngredientSystem())
+                .Add(new SleepSystem())
+                .Add(new FlushSystem())
+                .Add(new HomeSystem())
+                .Add(new ChangeJarSystem())
                 //---Currency---
                 .Add(new CalculateCurrencySystem())
                 .Add(new UserInterfaceCurrencySystem())
@@ -279,6 +292,11 @@ namespace Client
         {
             return new EcsSystems(_ecsWorld, "UserInterfaceSystems")
                 .Add(new GameScreenSystem())
+                .Add(new HomeScreenSystem())
+                .Add(new WinScreenSystem())
+                .Add(new LoseScreenSystem())
+                .Add(new GatheringScreenSystem())
+                .Add(new CatchingScreenSystem())
                 .Add(new SettingScreenSystem());
         }
 

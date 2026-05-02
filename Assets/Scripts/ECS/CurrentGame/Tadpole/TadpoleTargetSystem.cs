@@ -1,4 +1,7 @@
-﻿using Client.Data.Core;
+﻿using System.Collections.Generic;
+using Assets.Scripts.ECS._Features.Stats;
+using Client.Data.Core;
+using Client.ECS.CurrentGame.Player;
 using Extensions;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -12,9 +15,13 @@ namespace Client
         private AudioService _audioService;
 
         private EcsFilter<TadpoleProvider>.Exclude<Timer<ThinkingTimer>> _filter;
+        private EcsFilter<RaceManagerProvider, InitedMarker> _raceFilter;
 
         public void Run()
         {
+            if(_raceFilter.IsEmpty())
+                return;
+            
             foreach (var idx in _filter)
             {
                 ref var entity = ref _filter.GetEntity(idx);
@@ -36,7 +43,7 @@ namespace Client
                 entity.Get<Target>().Value = target;
                 entity.Get<Timer<ThinkingTimer>>().Value = _data.BalanceData.ThinkingTime;
 
-                if (entity.Has<PlayerTagProvider>()) // debug
+                if (entity.Has<PlayerTag>()) // debug
                     _data.SceneData.RealTarget.position = target;
             }
         }

@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f583bb641a54ae8ba6808d4f758778c, type: 3}
   m_Name: TadpoleData_1
   m_EditorClassIdentifier: Assembly-CSharp::Data.TadpoleData
-  Id: 0
-  Prefab: {fileID: 3159051839951897244, guid: d9eaeb53dd97d584eaa2fe2275532efb, type: 3}
+  TadpoleType: 0
+  Prefab: {fileID: 2939147926735449758, guid: 283bee911dc3dc04f8bb32845ca9e100, type: 3}
+  CaviarPrefab: {fileID: 3159051839951897244, guid: d9eaeb53dd97d584eaa2fe2275532efb,
+    type: 3}
+  Stats:
+    _serializedList:
+    - Key: 0
+      Value:
+        BaseValue: 1

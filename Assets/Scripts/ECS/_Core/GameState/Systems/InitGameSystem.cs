@@ -27,16 +27,37 @@ namespace Client
                 _ui.MainMenuScreen.SetShowState(true);
             else
                 _world.NewEntity().Get<SpawnLevelRequest>();*/
-            _world.NewEntity().Get<SpawnLevelRequest>();
+            //_world.NewEntity().Get<SpawnLevelRequest>();
 
             //_world.NewEntity().Get<SpawnMenuLevelRequest>();
 
             _audioService.Play(Sounds.MusicGameplaySound);
             _ui.ShowScreen<GameScreen>();
+            _ui.ShowScreen<HomeScreen>();
+            _ui.ReorderScreens();
+            
             //_ui.ShowScreen<SettingsScreen>();
             //_cameraService.SetCamera(CameraType.None);
 
-            _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.Init;
+            //debug
+            /*if (_data.SaveData.TadpoleSaveData.Count == 0)
+            {
+                var ingredients = new Dictionary<IngredientType, int>();
+                ingredients.Add(IngredientType.Dung, 1);
+                _data.RuntimeData.CurrentTadpole = 0;
+                _data.SaveData.TadpoleByJar[0] = 0;
+                _data.SaveData.TadpoleSaveData.Add(new TadpoleSaveData()
+                {
+                    TadpoleType = TadpoleType.None,
+                    TadpoleName = "Debugy",
+                    Ingredients = ingredients
+                });
+            }*/
+
+            _world.NewEntity().Get<GoToHomeRequest>();            
+            _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.HomeStep;            
+
+            //_world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.Init;
         }
     }
 }

@@ -49,7 +49,7 @@ namespace Client
 
                     _world.NewEntity().Get<EarnCurrencyEvent>();
 
-                    _ui.GetScreen<GameScreen>().UpdateLevelText(_data.SaveData.EventLevelIdx);
+                    //_ui.GetScreen<GameScreen>().UpdateLevelText(_data.SaveData.EventLevelIdx);
                 }
             }
         }

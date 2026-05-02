@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
+using Client;
 using Client.Data;
 using Client.Data.Core;
 using Client.Data.Equip;
@@ -23,7 +24,6 @@ namespace Data
         public int EventLevelIdx;
         public int PlayerLevel;
         public float Experience;
-        public int CatchCounter;
         public int Day;
 
         [Header("Timers")] public string IdleRewardTimeKey;
@@ -32,8 +32,9 @@ namespace Data
 
         [Header("Tutorials")] public SerializedDictionary<TutorialStep, bool> TutrorialStates;
 
-        [Header("CurrentGame")] public SerializedDictionary<string, TadpoleSaveData> TadpoleSaveData;
-        public SerializedDictionary<ItemType, int> Ingredients;
+        [Header("CurrentGame")] public List<TadpoleSaveData> TadpoleSaveData;
+        public SerializedDictionary<IngredientType, int> Ingredients;
+        public int[] TadpoleByJar;
 
         public void ResetToDefaults()
         {
@@ -41,7 +42,6 @@ namespace Data
             EventLevelIdx = 0;
             PlayerLevel = 1;
             Experience = 0;
-            CatchCounter = 0;
 
             IsGameLaunchedBefore = false;
             IsVibrationOn = true;
@@ -54,8 +54,9 @@ namespace Data
             IdleRewardTimeKey = "";
 
             TutrorialStates = new SerializedDictionary<TutorialStep, bool>();
-            TadpoleSaveData = new SerializedDictionary<string, TadpoleSaveData>();
-            Ingredients = new SerializedDictionary<ItemType, int>();
+            TadpoleSaveData = new List<TadpoleSaveData>();
+            Ingredients = new SerializedDictionary<IngredientType, int>();
+            TadpoleByJar = new int[3];
         }
 
         public void BindData(int startMoney, List<TutorialData> tutorialDatas, List<ItemData> itemDatas)
@@ -66,16 +67,23 @@ namespace Data
 
             foreach (var itemData in itemDatas)
             {
-                Debug.Log($"itemData.ItemType: {itemData.ItemType}");
-                Ingredients.Add(itemData.ItemType, 0);
+                Debug.Log($"itemData.ItemType: {itemData.IngredientType}");
+                Ingredients.Add(itemData.IngredientType, 0);
             }
+
+            TadpoleByJar = new int[3] { -1, -1, -1 };
         }
     }
 
     [Serializable]
     public class TadpoleSaveData
     {
-        public int DataId;
+        public TadpoleType TadpoleType;
         public string TadpoleName;
+        public bool IsFed;
+        public int Fat;
+        public bool IsDead;
+        public int MetamorphosisStep;
+        public Dictionary<IngredientType, int> Ingredients;
     }
 }

@@ -26,6 +26,58 @@ namespace Client
                 _ui.GetScreen<SettingsScreen>().UpdateView();
                 _audioService.Play(Sounds.UiClickSound);
             };
+            
+            _ui.GetScreen<GameScreen>().GoToCatchingButtonClick += () =>
+            {
+                _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.CatchingStep;
+                EcsEntity goToRequestEntity = _world.NewEntity();
+                goToRequestEntity.Get<GoToCatchingRequest>();
+                goToRequestEntity.Get<DespawnLevelRequest>();
+                _audioService.Play(Sounds.UiClickSound);
+            };
+            
+            _ui.GetScreen<GameScreen>().GoToGatheringButtonClick += () =>
+            {
+                _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.GatheringStep;
+                EcsEntity goToRequestEntity = _world.NewEntity();
+                goToRequestEntity.Get<GoToGatheringRequest>();
+                goToRequestEntity.Get<DespawnLevelRequest>();
+                _audioService.Play(Sounds.UiClickSound);
+            };
+            
+            _ui.GetScreen<GameScreen>().GoToHomeButtonClick += () =>
+            {
+                _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.HomeStep;
+                EcsEntity goToRequestEntity = _world.NewEntity();
+                goToRequestEntity.Get<GoToHomeRequest>();
+                goToRequestEntity.Get<DespawnLevelRequest>();
+                _audioService.Play(Sounds.UiClickSound);
+            };
+            
+            _ui.GetScreen<GameScreen>().StartRaceButtonClick += () =>
+            {
+                _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.RaceStep;
+                EcsEntity goToRequestEntity = _world.NewEntity();
+                goToRequestEntity.Get<StartRaceRequest>();
+                goToRequestEntity.Get<DespawnLevelRequest>();
+                _audioService.Play(Sounds.UiClickSound);
+            };
         }
+    }
+
+    public struct StartRaceRequest : IEcsIgnoreInFilter
+    {
+    }
+    
+    public struct GoToGatheringRequest : IEcsIgnoreInFilter
+    {
+    }
+    
+    public struct GoToCatchingRequest : IEcsIgnoreInFilter
+    {
+    }
+    
+    public struct GoToHomeRequest : IEcsIgnoreInFilter
+    {
     }
 }

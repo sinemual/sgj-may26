@@ -14,7 +14,7 @@ namespace Client
         private PrefabFactory _prefabFactory;
 
         private EcsFilter<RaycastEvent> _filter;
-        private EcsFilter<CatchProvider>.Exclude<InPuddleState> _catchfilter;
+        private EcsFilter<TrapProvider>.Exclude<InPuddleState> _catchfilter;
 
         public void Run()
         {

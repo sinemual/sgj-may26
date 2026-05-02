@@ -1,12 +1,11 @@
 using System;
-using System.Collections.Generic;
+using Assets.Scripts.ECS._Features.Stats;
 using Client.Data;
 using Client.Data.Core;
+using Client.ECS.CurrentGame.Player;
 using Data.Base;
 using Leopotam.Ecs;
 using UnityEngine;
-using UnityEngine.Splines;
-using Random = UnityEngine.Random;
 
 namespace Data
 {
@@ -26,11 +25,12 @@ namespace Data
         
         
         public bool IsCurrentRaceFinishedForPlayer;
-        public int RaceStep;
+        public RaceStep RaceStep;
         public int PlaceInRace;
         public int FinishersCounter;
+        public int CurrentTadpole;
+        public int CurrentHomePoint;
         
-
         public void InjectData(SharedData sharedData) => base.SharedData = sharedData;
 
         public override void ResetData()
@@ -55,5 +55,41 @@ namespace Data
 
         public int ExperienceToLevel(int level) =>
             (int)(SharedData.BalanceData.LevelBaseCoef * Mathf.Pow(SharedData.BalanceData.LevelMultiCoef, level));
+
+        /*public void SetState(GameStateType stateType)
+        {
+            PreviousGameStateType = CurrentGameStateType;
+            CurrentGameStateType = stateType;
+            
+            //if()
+        }*/
+        
+        
+        public void UpdateStatsByIngredients(ref Stats stats, ref int saveId)
+        {
+            foreach (var stat in stats.Value)
+                stat.Value.RemoveAllModifiers();
+
+            Debug.Log($"saveId{saveId} {SharedData.SaveData.TadpoleSaveData[saveId].TadpoleName}");
+            if (SharedData.SaveData.TadpoleSaveData[saveId].Ingredients != null)
+                foreach (var ingredient in SharedData.SaveData.TadpoleSaveData[saveId].Ingredients)
+                {
+                    var ingredientData = SharedData.StaticData.IngredientDataByType[ingredient.Key];
+                    var statModifier = new StatModifier()
+                    {
+                        Type = ingredientData.StatModifierType,
+                        Value = ingredientData.GetStatModifierValueByLevel(ingredient.Value)
+                    };
+                    stats.Value[ingredientData.StatType].AddModifier(statModifier);
+                    stats.Value[ingredientData.StatType].SaveThisUpgradeModifier();
+                }
+        }
+    }
+
+    public enum RaceStep
+    {
+        Sprint = 0,
+        Labyrinth = 1,
+        FinalRace = 2
     }
 }

@@ -11,19 +11,42 @@ using UnityEngine.UI;
 
 public class GameScreen : BaseScreen
 {
-    [SerializeField] private TextMeshProUGUI moneyText;
-    [SerializeField] private TextMeshProUGUI progressText;
+    //[SerializeField] private TextMeshProUGUI moneyText;
+    //[SerializeField] private TextMeshProUGUI progressText;
+    [SerializeField] private Image sleepImage;
     [SerializeField] private UIButton pauseButton;
-
-    [Header("Level Progress Bar")] [SerializeField]
+    
+    [SerializeField] private UIButton startRaceButton;
+    [SerializeField] private UIButton goToGatheringButton;
+    [SerializeField] private UIButton goToCatchingButton;
+    [SerializeField] private UIButton goToHomeButton;
+    
+    /*[Header("Level Progress Bar")] [SerializeField]
     private TextMeshProUGUI levelText;
 
-    [SerializeField] private Image levelProgressMoveBarFill;
+    [SerializeField] private Image levelProgressMoveBarFill;*/
 
     public event Action PauseButtonClick;
+    public event Action StartRaceButtonClick;
+    public event Action GoToGatheringButtonClick;
+    public event Action GoToCatchingButtonClick;
+    public event Action GoToHomeButtonClick;
+
+    public UIButton StartRaceButton => startRaceButton;
+
+    public UIButton GoToGatheringButton => goToGatheringButton;
+
+    public UIButton GoToCatchingButton => goToCatchingButton;
+
+    public UIButton GoToHomeButton => goToHomeButton;
+
     protected override void ManualStart()
     {
         pauseButton.Clicked += OnPauseButtonClick;
+        StartRaceButton.Clicked += OnStartRaceButtonClick;
+        GoToGatheringButton.Clicked += OnGoToGatheringButtonClick;
+        GoToCatchingButton.Clicked += OnGoToCatchingButtonClick;
+        GoToHomeButton.Clicked += OnGoToHomeButtonClick;
         ShowScreen += UpdateView;
     }
 
@@ -32,10 +55,14 @@ public class GameScreen : BaseScreen
     }
 
     private void OnPauseButtonClick() => PauseButtonClick?.Invoke();
+    private void OnStartRaceButtonClick() => StartRaceButtonClick?.Invoke();
+    private void OnGoToGatheringButtonClick() => GoToGatheringButtonClick?.Invoke();
+    private void OnGoToCatchingButtonClick() => GoToCatchingButtonClick?.Invoke();
+    private void OnGoToHomeButtonClick() => GoToHomeButtonClick?.Invoke();
 
     public void UpdateMoneyText(int moneyAmount)
     {
-        //moneyText.text = $"{Utility.Format(moneyCount)}"; // money sprite
+        /*//moneyText.text = $"{Utility.Format(moneyCount)}"; // money sprite
         int currentMoney = moneyAmount;
 
         Tween.Custom(
@@ -50,9 +77,14 @@ public class GameScreen : BaseScreen
             target: moneyText.transform,
             strength: Vector3.one * 0.1f,
             duration: 0.15f
-        );
+        );*/
+    }
+    
+    public void Sleep()
+    {
+        Tween.Alpha(sleepImage, 1.0f, new TweenSettings(0.5f, Ease.InCubic, 2, CycleMode.Yoyo));
     }
 
-    public void UpdateLevelText(int level) => levelText.text = $"Level {level + 1}";
-    public void UpdateLevelText(string levelName) => levelText.text = $"{levelName}";
+    /*public void UpdateLevelText(int level) => levelText.text = $"Level {level + 1}";
+    public void UpdateLevelText(string levelName) => levelText.text = $"{levelName}";*/
 }

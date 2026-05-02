@@ -1,5 +1,6 @@
 ﻿using Client.Data.Core;
 using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Client
 {
@@ -25,16 +26,16 @@ namespace Client
                     {
                         monoEntity.Entity.Get<FinisherMarker>();
                         _data.RuntimeData.FinishersCounter += 1;
-                        if (monoEntity.Entity.Has<PlayerTagProvider>())
+                        if (!_data.RuntimeData.IsCurrentRaceFinishedForPlayer && monoEntity.Entity.Has<PlayerTag>())
                         {
                             _data.RuntimeData.PlaceInRace = _data.RuntimeData.FinishersCounter;
                             _data.RuntimeData.IsCurrentRaceFinishedForPlayer = true;
+                            
+                            if (_data.RuntimeData.PlaceInRace != 1)
+                                _world.NewEntity().Get<LoseEvent>();
+                            else
+                                _world.NewEntity().Get<WinEvent>();
                         }
-
-                        if (_data.RuntimeData.IsCurrentRaceFinishedForPlayer && _data.RuntimeData.PlaceInRace != 1)
-                            _world.NewEntity().Get<LoseEvent>();
-                        else
-                            _world.NewEntity().Get<WinEvent>();
                     }
                 }
             }

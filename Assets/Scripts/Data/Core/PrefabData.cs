@@ -10,7 +10,11 @@ namespace Client.Data
     public class PrefabData
     {
         public GameObject EmptyPrefab;
-        public GameObject CatchPrefab;
+        public GameObject TrapPrefab;
+        
+        public GameObject GatheringStepPrefab;
+        public GameObject CatchingStepPrefab;
+        public GameObject HomeStepPrefab;
 
         [Header("Prefabs - VFXs")] 
         public GameObject BloodVfxPrefab;

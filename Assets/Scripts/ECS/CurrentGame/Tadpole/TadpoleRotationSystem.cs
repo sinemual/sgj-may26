@@ -11,9 +11,13 @@ namespace Client
         private AudioService _audioService;
 
         private EcsFilter<TadpoleProvider, RigidbodyProvider, Target> _filter;
+        private EcsFilter<RaceManagerProvider, InitedMarker> _raceFilter;
 
         public void Run()
         {
+            if(_raceFilter.IsEmpty())
+                return;
+            
             foreach (var idx in _filter)
             {
                 ref var entity = ref _filter.GetEntity(idx);

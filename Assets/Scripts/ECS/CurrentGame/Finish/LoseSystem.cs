@@ -10,13 +10,14 @@ namespace Client
         private EcsWorld _world;
         private UserInterface _userInterface;
 
-        private EcsFilter<WinEvent> _filter;
+        private EcsFilter<LoseEvent> _filter;
 
         public void Run()
         {
             foreach (var idx in _filter)
             {
                 ref var entity = ref _filter.GetEntity(idx);
+                _data.RuntimeData.RaceStep = 0;
                 _userInterface.ShowScreen<LoseScreen>();
             }
         }

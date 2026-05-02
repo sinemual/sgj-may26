@@ -3,6 +3,9 @@ namespace Client.Data
     public enum CameraType
     {
         None = 0,
-        PizzaReady = 1,
+        Gathering = 1,
+        Catching = 2,
+        Race = 3,
+        Home = 4,
     }
 }

@@ -7,19 +7,13 @@ using UnityEngine.UI;
 
 public class LoseScreen : BaseScreen
 {
-    [SerializeField] private TextMeshProUGUI moneyText;
-    [SerializeField] private TextMeshProUGUI progressText;
-    [SerializeField] private UIButton pauseButton;
+    [SerializeField] private TextMeshProUGUI placeInRaceText;
+    [SerializeField] private UIButton goToHomeButton;
 
-    [Header("Level Progress Bar")] [SerializeField]
-    private TextMeshProUGUI levelText;
-
-    [SerializeField] private Image levelProgressMoveBarFill;
-
-    public event Action PauseButtonClick;
+    public event Action GoToHomeButtonClick;
     protected override void ManualStart()
     {
-        pauseButton.Clicked += OnPauseButtonClick;
+        goToHomeButton.Clicked += OnGoToHomeButtonClick;
         ShowScreen += UpdateView;
     }
 
@@ -27,28 +21,16 @@ public class LoseScreen : BaseScreen
     {
     }
 
-    private void OnPauseButtonClick() => PauseButtonClick?.Invoke();
+    private void OnGoToHomeButtonClick() => GoToHomeButtonClick?.Invoke();
 
-    public void UpdateMoneyText(int moneyAmount)
+    public void UpdatePlaceInRaceText(int place, int finishers)
     {
-        //moneyText.text = $"{Utility.Format(moneyCount)}"; // money sprite
-        int currentMoney = moneyAmount;
-
-        Tween.Custom(
-            startValue: (float)currentMoney,
-            endValue: (float)moneyAmount,
-            duration: 0.3f,
-            onValueChange: value => moneyText.text = $"{value:0}",
-            ease: Ease.OutQuad
-        );
+        placeInRaceText.text = $"{place}/{finishers}";
 
         Tween.PunchScale(
-            target: moneyText.transform,
+            target: placeInRaceText.transform,
             strength: Vector3.one * 0.1f,
             duration: 0.15f
         );
     }
-
-    public void UpdateLevelText(int level) => levelText.text = $"Level {level + 1}";
-    public void UpdateLevelText(string levelName) => levelText.text = $"{levelName}";
 }

@@ -10,7 +10,7 @@ namespace Client
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
 
-        private EcsFilter<CatchProvider, InPuddleState, MovingCompleteEvent> _catchfilter;
+        private EcsFilter<TrapProvider, InPuddleState, MovingCompleteEvent> _catchfilter;
         private EcsFilter<CaviarProvider> _caviarFilter;
 
         public void Run()

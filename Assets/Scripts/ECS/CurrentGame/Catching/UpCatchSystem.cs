@@ -12,7 +12,7 @@ namespace Client
         private PrefabFactory _prefabFactory;
 
         private EcsFilter<RaycastEvent> _filter;
-        private EcsFilter<CatchProvider, InPuddleState>.Exclude<VelocityPositionMoving> _catchfilter;
+        private EcsFilter<TrapProvider, InPuddleState>.Exclude<VelocityPositionMoving> _catchfilter;
 
         public void Run()
         {

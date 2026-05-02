@@ -49,7 +49,6 @@ namespace Client
 
             foreach (var worldEntity in _worldEntitiesFilter)
             {
-                
                 _prefabFactory.Despawn(ref _worldEntitiesFilter.GetEntity(worldEntity));
             }
         }
