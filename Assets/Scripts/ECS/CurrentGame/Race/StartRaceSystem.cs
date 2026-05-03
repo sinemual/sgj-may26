@@ -1,4 +1,5 @@
-﻿using Client.Data.Core;
+﻿using Client.Data;
+using Client.Data.Core;
 using Client.Factories;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Client
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
         private CameraService _cameraService;
+        private AudioService _audioService;
 
         private EcsFilter<StartRaceRequest>.Exclude<DespawnLevelRequest> _filter;
         private EcsFilter<TadpoleProvider, PlayerTag> _playerFilter;
@@ -30,6 +32,7 @@ namespace Client
                 stepEntity.Get<CurrentStepMarker>();
                 _prefabFactory.SetDefaultParent(stepEntity.Get<GameObjectProvider>().Value.transform);
                 _cameraService.SetCamera(CameraType.Race, isWarp: true);
+                _audioService.Play(Sounds.BulkSound);   
                 entity.Del<StartRaceRequest>();
             }
         }

@@ -20,7 +20,7 @@ namespace Client
             {
                 ref var entityRace = ref _raceFilter.GetEntity(idz);
                 ref var botPath = ref entityRace.Get<RaceManagerProvider>().BotPath;
-                
+
                 foreach (var idx in _filter)
                 {
                     ref var entity = ref _filter.GetEntity(idx);
@@ -30,7 +30,11 @@ namespace Client
                     ref var currentPoint = ref entity.Get<CurrentPoint>().Value;
 
                     if (currentPoint >= botPath.Length)
+                    {
+                        if (entity.Has<FinisherMarker>())
+                            entity.Get<LureRequest>().Position = botPath[currentPoint].position;
                         return;
+                    }
                     //Debug.Log($"currentPoint {currentPoint}");
 
                     if (Vector3.Distance(botPath[currentPoint].position, entityGo.transform.position) <
@@ -39,9 +43,11 @@ namespace Client
 
                     if (currentPoint >= botPath.Length)
                         return;
-                    
+
                     Vector3 random = Random.onUnitSphere * _data.BalanceData.BotRandomTargetRadius;
                     random = random.SetY(0.0f);
+                    if (entity.Has<FinisherMarker>())
+                        random = Vector3.zero;
                     Vector3 target = botPath[currentPoint].position + random;
 
                     entity.Get<LureRequest>().Position = target;

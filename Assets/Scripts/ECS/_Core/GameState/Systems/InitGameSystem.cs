@@ -20,7 +20,7 @@ namespace Client
         private AudioService _audioService;
         private TimeManagerService _timeManagerService;
         private CameraService _cameraService;
-        
+
         public void Init()
         {
             /*if (_data.PlayerData.IsGameLaunchedBefore)
@@ -31,14 +31,15 @@ namespace Client
 
             //_world.NewEntity().Get<SpawnMenuLevelRequest>();
             _data.RuntimeData.CurrentTadpole = -1;
-            
+
             _audioService.Play(Sounds.MusicGameplaySound);
+            _audioService.Play(Sounds.NatureSound);
             _ui.ShowScreen<GameScreen>();
             _ui.GetScreen<GameScreen>().UpdateDayText(_data.SaveData.Day);
             _ui.ShowScreen<HomeScreen>();
             _ui.ShowScreen<IntroScreen>();
             _ui.ReorderScreens();
-            
+
             //_ui.ShowScreen<SettingsScreen>();
             //_cameraService.SetCamera(CameraType.None);
 
@@ -57,8 +58,8 @@ namespace Client
                 });
             }*/
 
-            _world.NewEntity().Get<GoToHomeRequest>();            
-            _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.HomeStep;            
+            _world.NewEntity().Get<GoToHomeRequest>();
+            _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.HomeStep;
 
             //_world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.Init;
         }

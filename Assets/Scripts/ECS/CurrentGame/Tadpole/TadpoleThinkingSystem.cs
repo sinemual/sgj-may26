@@ -49,7 +49,7 @@ namespace Client
 
                 entity.Get<Target>().Value = target;
                 var thinkingTime = (1.0f - stats[StatType.Intelligence].GetValue()) * _data.BalanceData.ThinkingTimeMultiplier;
-                Debug.Log($"thinkingTime {thinkingTime}");
+                //Debug.Log($"thinkingTime {thinkingTime}");
                 entity.Get<Timer<ThinkingTimer>>().Value = thinkingTime;
 
                 if (entity.Has<PlayerTag>()) // debug

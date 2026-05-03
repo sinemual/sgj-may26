@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Client.Data;
 using Client.Data.Core;
 using Client.DevTools.MyTools;
 using Client.Factories;
@@ -12,6 +13,7 @@ namespace Client
         private SharedData _data;
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
+        private AudioService _audioService;
 
         private EcsFilter<CaviarProvider, CatchRequest, MovingCompleteEvent> _caviarFilter;
 
@@ -38,6 +40,8 @@ namespace Client
                             MetamorphosisStep = 0
                         });
 
+                        _audioService.Play(Sounds.PopSound);
+        
                         _data.SaveData.TadpoleByJar[i] = _data.SaveData.TadpoleSaveData.Count - 1;
                         break;
                         //_data.RuntimeData.CurrentTadpole = _data.SaveData.TadpoleByJar[i];

@@ -7,12 +7,15 @@ namespace Client.Data
     public static class Sounds
     {
         public static readonly string MusicGameplaySound = "ost";
+        public static readonly string NatureSound = "nature";
         public static readonly string UiClickSound = "ui_click";
         public static readonly string FlushSound = "flush";
         public static readonly string SleepSound = "sleep";
-        public static readonly string FeedSound = "feed";
-        public static readonly string AddIngredientSound = "ingredient";
-        public static readonly string ChangeJarSound = "change_jar";
+        public static readonly string PopSound = "pop";
+        public static readonly string WinSound = "win";
+        public static readonly string LoseSound = "lose";
+        public static readonly string LureSound = "lure";   
+        public static readonly string BulkSound = "bulk";   
 
         
         /*private static readonly List<string> CarHitSounds = new List<string>()

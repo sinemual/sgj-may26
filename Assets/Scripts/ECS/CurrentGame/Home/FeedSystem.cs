@@ -1,4 +1,5 @@
-﻿using Client.Data.Core;
+﻿using Client.Data;
+using Client.Data.Core;
 using Client.ECS.CurrentGame.Equipment;
 using Client.Factories;
 using Leopotam.Ecs;
@@ -11,6 +12,7 @@ namespace Client
         private SharedData _data;
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
+        private AudioService _audioService;
 
         private EcsFilter<FeedRequest> _filter;
         private EcsFilter<TadpoleProvider> _tadpoleFilter;
@@ -27,6 +29,7 @@ namespace Client
                     continue;
                 }
 
+                _audioService.Play(Sounds.PopSound);
                 _data.SaveData.TadpoleSaveData[_data.RuntimeData.CurrentTadpole].FatAmount += 0.1f;
                 _data.SaveData.TadpoleSaveData[_data.RuntimeData.CurrentTadpole].IsFed = true;
 

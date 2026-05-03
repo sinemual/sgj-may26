@@ -1,4 +1,5 @@
-﻿using Client.Data.Core;
+﻿using Client.Data;
+using Client.Data.Core;
 using Extensions;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace Client
     {
         private SharedData _data;
         private EcsWorld _world;
+        private AudioService _audioService;
 
         private EcsFilter<RaycastEvent> _filter;
         private EcsFilter<TadpoleProvider, PlayerTag> _playerFilter;
@@ -30,6 +32,7 @@ namespace Client
 
                         if (raycastEvent.GameObject.CompareTag(_data.StaticData.CoastTag))
                         {
+                            _audioService.Play(Sounds.LureSound);
                             playerEntity.Get<LureRequest>().Position = raycastEvent.HitPoint.SetY(0);
                             _data.SceneData.PlayerTarget.position = raycastEvent.HitPoint.SetY(0);
                         }

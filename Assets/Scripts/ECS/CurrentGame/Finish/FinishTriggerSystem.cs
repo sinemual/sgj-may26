@@ -9,6 +9,7 @@ namespace Client
     {
         private SharedData _data;
         private EcsWorld _world;
+        private AudioService _audioService;
 
         private EcsFilter<FinishTagProvider, OnTriggerEnterEvent> _enterFilter;
         private EcsFilter<FinishTagProvider, OnTriggerExitEvent> _exitFilter;
@@ -34,12 +35,13 @@ namespace Client
 
                             if (_data.RuntimeData.PlaceInRace != 1)
                             {
-                                
+                                _audioService.Play(Sounds.WinSound);
                                 monoEntity.Entity.Get<AnimatorProvider>().Value.SetTrigger(Animations.IsWin);
                                 _world.NewEntity().Get<LoseEvent>();
                             }
                             else
                             {
+                                _audioService.Play(Sounds.LoseSound);
                                 monoEntity.Entity.Get<AnimatorProvider>().Value.SetTrigger(Animations.IsLose);
                                 _world.NewEntity().Get<WinEvent>();
                             }

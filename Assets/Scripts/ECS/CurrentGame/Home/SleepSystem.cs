@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.ECS._Features.Stats;
+using Client.Data;
 using Client.Data.Core;
 using Client.Factories;
 using Client.Infrastructure.UI;
@@ -13,6 +14,7 @@ namespace Client
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
         private UserInterface _ui;
+        private AudioService _audioService;
 
         private EcsFilter<SleepRequest> _filter;
         private EcsFilter<TadpoleProvider>.Exclude<DeadState> _tadpoleFilter;
@@ -78,7 +80,7 @@ namespace Client
                 _data.RuntimeData.IsTodayGathered = false;
                 _ui.GetScreen<GameScreen>().UpdateDayText(_data.SaveData.Day);
 
-
+                _audioService.Play(Sounds.SleepSound);
                 entity.Del<SleepRequest>();
             }
         }

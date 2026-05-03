@@ -15,36 +15,27 @@ MonoBehaviour:
   musicMixer: {fileID: 24100000, guid: 4b5f6e38e937b9347be4d0d0bd41576d, type: 2}
   effectsMixer: {fileID: 24100000, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
   sounds:
-  - name: buy
-    clip: {fileID: 8300000, guid: b60c0057d69d43e4ab848d694a857f38, type: 3}
-    volume: 0.453
+  - name: flush
+    clip: {fileID: 8300000, guid: b38a20758c4e8dd40aba6b9eccd22d29, type: 3}
+    volume: 0.3
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
+    source: {fileID: 0}
+  - name: sleep
+    clip: {fileID: 8300000, guid: 0adc30276b758de4b87d3e8841615bf9, type: 3}
+    volume: 0.167
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
     mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
     source: {fileID: 0}
-  - name: money
-    clip: {fileID: 8300000, guid: 5011a36e828885b4ba58cf97f7745eb5, type: 3}
-    volume: 0.453
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
-    source: {fileID: 0}
-  - name: hole_shh
-    clip: {fileID: 8300000, guid: 05d31737478e9e145a2406814e8ecda2, type: 3}
-    volume: 0.453
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
-    source: {fileID: 0}
-  - name: produce_work
-    clip: {fileID: 8300000, guid: 35f3b47933d3f604fa397ce560a95d4b, type: 3}
-    volume: 0.103
+  - name: pop
+    clip: {fileID: 8300000, guid: eb8c66ddbed21924cb66a6951e0baa1c, type: 3}
+    volume: 0.3
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -52,107 +43,35 @@ MonoBehaviour:
     mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
     source: {fileID: 0}
   - name: win
-    clip: {fileID: 8300000, guid: 144b3c0c76b992b41bd41c333b11e5d6, type: 3}
-    volume: 0.453
+    clip: {fileID: 8300000, guid: 892175be403269b4cb6a455b3d7cbc0f, type: 3}
+    volume: 0.193
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
     mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
     source: {fileID: 0}
-  - name: loose
-    clip: {fileID: 8300000, guid: 15f9f08f594aec14284901957531d403, type: 3}
-    volume: 0.453
+  - name: lose
+    clip: {fileID: 8300000, guid: 95f42fc6a55c8ac4ca44b4eb98ca28a9, type: 3}
+    volume: 0.203
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
     mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
     source: {fileID: 0}
-  - name: death
-    clip: {fileID: 8300000, guid: d52f704ee37122e428690302ba08418b, type: 3}
-    volume: 0.453
+  - name: lure
+    clip: {fileID: 8300000, guid: ee8fc7ae8e4e1dd46b31c669bc363cce, type: 3}
+    volume: 0.3
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
     loop: 0
     mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
     source: {fileID: 0}
-  - name: take_money
-    clip: {fileID: 8300000, guid: cf2ea154eefbc234bbcc8446eaa6147e, type: 3}
-    volume: 0.453
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
-    source: {fileID: 0}
-  - name: ladle
-    clip: {fileID: 8300000, guid: 446b1b6cb2a8e4a4f87cc07a7660785a, type: 3}
-    volume: 0.453
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 1
-    mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
-    source: {fileID: 0}
-  - name: boost
-    clip: {fileID: 8300000, guid: f18191898e796964eb2cb00a903ef0c6, type: 3}
-    volume: 0.453
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
-    source: {fileID: 0}
-  - name: level_exit
-    clip: {fileID: 8300000, guid: ccf4e0c7cda507f4c9d696e0aeb060a7, type: 3}
-    volume: 0.453
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
-    source: {fileID: 0}
-  - name: step_1
-    clip: {fileID: 8300000, guid: 33e1865e8c785db48a7d5feb7aba3d8f, type: 3}
-    volume: 0.15
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
-    source: {fileID: 0}
-  - name: step_2
-    clip: {fileID: 8300000, guid: f568af4d8164a4d43a6a3916c302ed08, type: 3}
-    volume: 0.15
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
-    source: {fileID: 0}
-  - name: lamp
-    clip: {fileID: 8300000, guid: 4ad21263c1b9a9f4f903a667c0456fd7, type: 3}
-    volume: 0.453
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
-    source: {fileID: 0}
-  - name: experiment_complete
-    clip: {fileID: 8300000, guid: 2e60b72d0b8c45c4fbac277faf84686d, type: 3}
-    volume: 0.453
-    volumeVariance: 0.1
-    pitch: 1
-    pitchVariance: 0.1
-    loop: 0
-    mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
-    source: {fileID: 0}
-  - name: experiment_start
-    clip: {fileID: 8300000, guid: 056bbbadf1b3e1543aef698bb3ac0142, type: 3}
-    volume: 0.453
+  - name: bulk
+    clip: {fileID: 8300000, guid: 17305796006375e4a95014735920d65c, type: 3}
+    volume: 0.3
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -162,26 +81,26 @@ MonoBehaviour:
   soundtrackSounds:
   - name: ost
     clip: {fileID: 8300000, guid: 59efe7a29d65302419525548d20d8260, type: 3}
-    volume: 0.41
+    volume: 0.5
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     loop: 1
     mixer: {fileID: 24300002, guid: 4b5f6e38e937b9347be4d0d0bd41576d, type: 2}
     source: {fileID: 0}
-  - name: ost_menu
-    clip: {fileID: 8300000, guid: 3380cd729886d30419558bd870aed7cb, type: 3}
-    volume: 0.4
+  - name: nature
+    clip: {fileID: 8300000, guid: 32ef6977a37fe064987cd905be42c2c7, type: 3}
+    volume: 0.05
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     loop: 1
-    mixer: {fileID: 24300002, guid: 4b5f6e38e937b9347be4d0d0bd41576d, type: 2}
+    mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
     source: {fileID: 0}
   uiSounds:
   - name: ui_click
-    clip: {fileID: 8300000, guid: 26590479dd9de51468bcfa8ef0293c60, type: 3}
-    volume: 0.75
+    clip: {fileID: 8300000, guid: 09dc6c360aa4bfe4e8204de9675741b6, type: 3}
+    volume: 0.291
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1
@@ -189,8 +108,8 @@ MonoBehaviour:
     mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
     source: {fileID: 0}
   - name: ui_upgrade
-    clip: {fileID: 8300000, guid: 96611e2aa7fc83748b09b123b76bd2ea, type: 3}
-    volume: 0.431
+    clip: {fileID: 8300000, guid: 09dc6c360aa4bfe4e8204de9675741b6, type: 3}
+    volume: 0.233
     volumeVariance: 0.1
     pitch: 1
     pitchVariance: 0.1

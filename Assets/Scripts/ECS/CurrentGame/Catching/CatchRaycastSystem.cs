@@ -12,6 +12,7 @@ namespace Client
         private SharedData _data;
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
+        private AudioService _audioService;
 
         private EcsFilter<RaycastEvent> _filter;
         private EcsFilter<TrapProvider>.Exclude<InPuddleState> _catchfilter;
@@ -33,6 +34,7 @@ namespace Client
 
                         catchGo.transform.position = raycastEvent.HitPoint.SetY(5.0f);
                         catchRb.isKinematic = false;
+                        _audioService.Play(Sounds.BulkSound);
                         catchEntity.Get<InPuddleState>();
                     }
                     /*_prefabFactory.Spawn(_data.StaticData.PrefabData.Catch)
