@@ -13,8 +13,14 @@ public class IngredientsPanel : MonoBehaviour
 
     public void InitIngredient(int num, ItemData itemData, int amount)
     {
-        panels[num].PickIngredient -= AddIngredient;
+        panels[num].PickIngredient -= OnAddIngredient;
         panels[num].UpdateInfoByData(itemData, amount);
-        panels[num].PickIngredient += AddIngredient;
+        panels[num].PickIngredient += OnAddIngredient;
+    }
+
+    private void OnAddIngredient(ItemData data)
+    {
+        Debug.Log($"OnAddIngredient {data}");
+        AddIngredient?.Invoke(data);
     }
 }

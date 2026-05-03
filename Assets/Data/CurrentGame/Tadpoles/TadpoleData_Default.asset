@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f583bb641a54ae8ba6808d4f758778c, type: 3}
-  m_Name: TadpoleData_1
+  m_Name: TadpoleData_Default
   m_EditorClassIdentifier: Assembly-CSharp::Data.TadpoleData
   TadpoleType: 0
   Prefab: {fileID: 2939147926735449758, guid: 283bee911dc3dc04f8bb32845ca9e100, type: 3}
@@ -21,3 +21,18 @@ MonoBehaviour:
     - Key: 0
       Value:
         BaseValue: 1
+    - Key: 21
+      Value:
+        BaseValue: 1
+    - Key: 22
+      Value:
+        BaseValue: 0
+    - Key: 23
+      Value:
+        BaseValue: 0
+    - Key: 8
+      Value:
+        BaseValue: 1
+    - Key: 1
+      Value:
+        BaseValue: 0

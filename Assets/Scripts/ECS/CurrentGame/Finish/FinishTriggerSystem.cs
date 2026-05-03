@@ -1,4 +1,5 @@
-﻿using Client.Data.Core;
+﻿using Client.Data;
+using Client.Data.Core;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -30,11 +31,18 @@ namespace Client
                         {
                             _data.RuntimeData.PlaceInRace = _data.RuntimeData.FinishersCounter;
                             _data.RuntimeData.IsCurrentRaceFinishedForPlayer = true;
-                            
+
                             if (_data.RuntimeData.PlaceInRace != 1)
+                            {
+                                
+                                monoEntity.Entity.Get<AnimatorProvider>().Value.SetTrigger(Animations.IsWin);
                                 _world.NewEntity().Get<LoseEvent>();
+                            }
                             else
+                            {
+                                monoEntity.Entity.Get<AnimatorProvider>().Value.SetTrigger(Animations.IsLose);
                                 _world.NewEntity().Get<WinEvent>();
+                            }
                         }
                     }
                 }

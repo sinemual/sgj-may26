@@ -39,8 +39,6 @@ namespace Client
                     ref var animator = ref deadEntity.Get<AnimatorProvider>().Value;
                     deadCharacter.Collider.enabled = false;
                     deadCharacter.DeathCollider.enabled = true;
-
-                    animator.SetTrigger(Animations.IsDeath);
                     //_audioService.Play(Sounds.GetRandomZombieHit());
                 }
 

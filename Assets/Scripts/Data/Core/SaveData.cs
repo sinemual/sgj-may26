@@ -41,6 +41,7 @@ namespace Data
             LevelIdx = 0;
             EventLevelIdx = 0;
             PlayerLevel = 1;
+            Day = 1;
             Experience = 0;
 
             IsGameLaunchedBefore = false;
@@ -67,7 +68,7 @@ namespace Data
 
             foreach (var itemData in itemDatas)
             {
-                Debug.Log($"itemData.ItemType: {itemData.IngredientType}");
+                //Debug.Log($"itemData.ItemType: {itemData.IngredientType}");
                 Ingredients.Add(itemData.IngredientType, 0);
             }
 
@@ -81,9 +82,11 @@ namespace Data
         public TadpoleType TadpoleType;
         public string TadpoleName;
         public bool IsFed;
-        public int Fat;
+        public float Health;
+        public float FatAmount;
         public bool IsDead;
         public int MetamorphosisStep;
         public Dictionary<IngredientType, int> Ingredients;
+        public Dictionary<IngredientType, int> IngredientsToday;
     }
 }

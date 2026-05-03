@@ -31,7 +31,8 @@ namespace Client
                             TadpoleType = data.TadpoleType,
                             TadpoleName = Names.GetRandom(),
                             Ingredients = new Dictionary<IngredientType, int>(),
-                            Fat = 0,
+                            IngredientsToday = new Dictionary<IngredientType, int>(),
+                            FatAmount = 1,
                             IsDead = false,
                             IsFed = false,
                             MetamorphosisStep = 0

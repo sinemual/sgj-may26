@@ -51,7 +51,8 @@ namespace Client
 
             _ui.GetScreen<SettingsScreen>().CloseButtonClick += () =>
             {
-                Time.timeScale = 1.0f;
+                //Time.timeScale = 1.0f;
+                Debug.Log($"CloseButtonClick");
                 _ui.HideScreen<SettingsScreen>();
                 _audioService.Play(Sounds.UiClickSound);
             };

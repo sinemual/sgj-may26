@@ -13,6 +13,8 @@ public class GameScreen : BaseScreen
 {
     //[SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI dayText;
+    [SerializeField] private TextMeshProUGUI textText;
+    [SerializeField] private GameObject textPanel;
     [SerializeField] private Image sleepImage;
     [SerializeField] private UIButton pauseButton;
     
@@ -89,6 +91,17 @@ public class GameScreen : BaseScreen
             strength: Vector3.one * 0.1f,
             duration: 0.15f
         );
+    }
+
+    public void ShowTextPanel(string text)
+    {
+        textPanel.SetActive(true);
+        textText.text = text;
+    }
+    
+    public void HideTextPanel()
+    {
+        textPanel.SetActive(false);
     }
     
     public void Sleep()

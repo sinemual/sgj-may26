@@ -1,4 +1,5 @@
-﻿using Client.Data;
+﻿using Assets.Scripts.ECS._Features.Stats;
+using Client.Data;
 using Client.Data.Core;
 using Client.ECS.CurrentGame.Hit.Systems;
 using Leopotam.Ecs;
@@ -12,7 +13,7 @@ namespace Client
         private CameraService _cameraService;
         private AudioService _audioService;
 
-        private EcsFilter<TadpoleProvider, RigidbodyProvider, Target>.Exclude<Timer<ReloadingTimer>> _filter;
+        private EcsFilter<TadpoleProvider, RigidbodyProvider, Target>.Exclude<Timer<ReloadingTimer>, DeadState> _filter;
         private EcsFilter<RaceManagerProvider, InitedMarker> _raceFilter;
 
         public void Run()
@@ -27,9 +28,14 @@ namespace Client
                 ref var animator = ref entity.Get<AnimatorProvider>().Value;
                 ref var entityRb = ref entity.Get<RigidbodyProvider>().Value;
                 ref var target = ref entity.Get<Target>().Value;
+                ref var stats = ref entity.Get<Stats>().Value;
 
-                //animator.SetBool(Animations.IsRun, false);
-                entityRb.AddForce(entityGo.transform.forward * _data.BalanceData.DebugSpeed, ForceMode.Force);
+
+                var fatPenalty = stats[StatType.Fat].GetValue() * _data.BalanceData.FatPenaltyMultiplier;
+                var speed = stats[StatType.Speed].GetValue() * _data.BalanceData.MoveSpeedMultiplier - fatPenalty;
+                animator.SetFloat(Animations.MovementSpeed, speed);
+                entityRb.linearVelocity = Vector3.zero;
+                entityRb.AddForce(entityGo.transform.forward * speed, ForceMode.Impulse);
                 //entityRb.linearVelocity = entityGo.transform.forward;
                 entity.Get<Timer<ReloadingTimer>>().Value =_data.BalanceData.ReloadingMovementTime;
             }

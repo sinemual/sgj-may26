@@ -6,16 +6,19 @@ using UnityEngine;
 
 namespace Client
 {
-    public class GatheringSpawnItemSystem : IEcsInitSystem
+    public class GatheringSpawnItemSystem : IEcsRunSystem
     {
         private SharedData _data;
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
 
-        private EcsFilter<GatheringSpawnItemProvider> _filter;
+        private EcsFilter<GatheringSpawnItemProvider>.Exclude<InitedMarker> _filter;
 
-        public void Init()
+        public void Run()
         {
+            if (_data.RuntimeData.IsTodayGathered)
+                return;
+
             foreach (var idx in _filter)
             {
                 ref var entity = ref _filter.GetEntity(idx);
@@ -23,16 +26,23 @@ namespace Client
 
                 foreach (var spawnPoint in spawnPoints)
                 {
-                    if (Random.value > 0.0f)
+                    //Debug.Log($"{Random.value}");
+                    if (Random.value > 0.2f)
                     {
                         float random = Random.value;
 
-                        foreach (var item in _data.StaticData.ItemData)
+                        var revertedList = _data.StaticData.ItemData;
+                        revertedList.Reverse();
+
+                        foreach (var item in revertedList)
                         {
+                            //Debug.Log($"item {item.IngredientType} >= {random} >= {_data.BalanceData.SpawnIngredientChanceByType[item.IngredientType]}");
                             if (random >= _data.BalanceData.SpawnIngredientChanceByType[item.IngredientType])
                             {
-                                EcsEntity spawnItemEntity = _prefabFactory.Spawn(item.ItemView.ItemPrefab, spawnPoint.position, Quaternion.identity);
+                                //Debug.Log($"{item.IngredientType}");
+                                EcsEntity spawnItemEntity = _prefabFactory.Spawn(item.ItemView.ItemPrefab, spawnPoint.position, spawnPoint.rotation);
                                 spawnItemEntity.Get<ItemDataComponent>().Value = item;
+                                spawnItemEntity.Get<GameObjectProvider>().Value.transform.localScale = Vector3.one * 2.0f;
                                 break;
                             }
                         }
@@ -42,6 +52,9 @@ namespace Client
                         break;
                     }
                 }
+
+                _data.RuntimeData.IsTodayGathered = true;
+                entity.Get<InitedMarker>();
             }
         }
     }

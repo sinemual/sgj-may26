@@ -126,9 +126,11 @@ namespace Client
                 //---Tadpole Race---
                 .Add(new SpawnRaceTadpoleSystem())
                 .Add(new InitTadpoleSystem())
+                .Add(new UpdateTadpoleViewSystem())
                 .Add(new TadpoleBotGoSystem())
-                .Add(new TadpoleTargetSystem())
+                .Add(new TadpoleThinkingSystem())
                 .Add(new TadpoleMovementSystem())
+                .Add(new TadpoleDamageSystem())
                 .Add(new TadpoleRotationSystem())
                 //---Tadpole In Jar---
                 //---Race---

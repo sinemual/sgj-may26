@@ -36,6 +36,7 @@ namespace Client
                         EcsEntity botEntity = _prefabFactory.Spawn(botData.Prefab,
                             spawnPoints[i].position, Quaternion.identity);
                         botEntity.Get<TadpoleDataComponent>().Value = botData;
+                        botEntity.Get<UpdateTadpoleViewRequest>();
                     }
                     else
                     {
@@ -45,6 +46,7 @@ namespace Client
                         playerEntity.Get<TadpoleDataComponent>().Value = playerData;
                         playerEntity.Get<SaveId>().Value = _data.RuntimeData.CurrentTadpole;
                         playerEntity.Get<PlayerTag>();
+                        playerEntity.Get<UpdateTadpoleViewRequest>();
                     }
                 }
 

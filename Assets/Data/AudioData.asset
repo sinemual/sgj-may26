@@ -161,7 +161,7 @@ MonoBehaviour:
     source: {fileID: 0}
   soundtrackSounds:
   - name: ost
-    clip: {fileID: 8300000, guid: 3380cd729886d30419558bd870aed7cb, type: 3}
+    clip: {fileID: 8300000, guid: 59efe7a29d65302419525548d20d8260, type: 3}
     volume: 0.41
     volumeVariance: 0
     pitch: 1

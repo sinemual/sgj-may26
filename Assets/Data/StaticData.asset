@@ -23,6 +23,8 @@ MonoBehaviour:
       type: 3}
     HomeStepPrefab: {fileID: 4416968778790806733, guid: e61e11024598f254f8c925801e323d4b,
       type: 3}
+    FoodPrefab: {fileID: 5561789855927788885, guid: 785b57d5195c9704bad416b1e65b6631,
+      type: 3}
     BloodVfxPrefab: {fileID: 3869680565941660763, guid: f945a8958f21b6b43b170b4c338ee984,
       type: 3}
     DamageWorldUiPrefab: {fileID: 558157366606395816, guid: 020f66d112090564c9130ad8680233fa,
@@ -58,9 +60,10 @@ MonoBehaviour:
     - Key: 0.7
       Value: {r: 0.8745098, g: 0.52156866, b: 0.24313726, a: 1}
     - Key: 0.8
-      Value: {r: 0.3529412, g: 0.3529412, b: 0.3529412, a: 1}
+      Value: {r: 1, g: 1, b: 1, a: 1}
     - Key: 0.9
       Value: {r: 0.61960787, g: 0.6, b: 1, a: 1}
+  BotColor: {r: 0.28930807, g: 0.28930807, b: 0.28930807, a: 1}
   TutorialData:
   - {fileID: 11400000, guid: 5cb533bd231c7f7418a7aaf158fe9df0, type: 2}
   TadpoleData:

@@ -17,6 +17,8 @@ namespace Client
         private AudioService _audioService;
 
         private EcsFilter<TadpoleProvider>.Exclude<InitedMarker> _filter;
+        private EcsFilter<RaceManagerProvider, InitedMarker> _raceFilter;
+        private EcsFilter<HomeProvider, InitedMarker> _homeFilter;
 
         public void Run()
         {
@@ -38,21 +40,35 @@ namespace Client
                     stats.Value.Add(stat.Key, copiedStat);
                 }
 
+                if (!_homeFilter.IsEmpty())
+                    entity.Get<PlayerTag>();
+
                 if (entity.Has<PlayerTag>())
                     _data.RuntimeData.UpdateStatsByIngredients(ref stats, ref saveId);
                 else
                     GenerateTadpoleBot(ref entity, ref stats);
 
+                if (!_raceFilter.IsEmpty() && entity.Has<PlayerTag>())
+                    entity.Get<TadpoleProvider>().Arrow.SetActive(true);
+
                 entity.Get<CurrentPoint>().Value = 0;
+                entity.Get<Health>().Value = stats.Value[StatType.Health].GetValue();
                 entity.Get<InitedMarker>();
+                entity.Get<UpdateTadpoleViewRequest>();
             }
         }
 
 
         private void GenerateTadpoleBot(ref EcsEntity entity, ref Stats stats)
         {
-            var ingredients = new Dictionary<IngredientType, int>();
-            ingredients.Add(IngredientType.Dung, 1);
+            var ingredients = new Dictionary<IngredientType, int>(); //generate random stats
+            int maxIngredients = ((int)_data.RuntimeData.RaceStep + 1) * 2;
+            ingredients.Add(IngredientType.Dung, Random.Range(0, maxIngredients));
+            ingredients.Add(IngredientType.Berry, Random.Range(0, maxIngredients));
+            ingredients.Add(IngredientType.Mushroom, Random.Range(0, maxIngredients));
+            ingredients.Add(IngredientType.Lavender, Random.Range(0, maxIngredients));
+            ingredients.Add(IngredientType.PineCone, Random.Range(0, maxIngredients));
+
             entity.Get<BotTadpoleSaveData>().Value = new TadpoleSaveData()
             {
                 TadpoleType = TadpoleType.None,
@@ -74,6 +90,8 @@ namespace Client
                 stats.Value[ingredientData.StatType].AddModifier(statModifier);
                 stats.Value[ingredientData.StatType].SaveThisUpgradeModifier();
             }
+
+            stats.Value[StatType.Fat].SetAllValues(Random.Range(1.0f, 2.0f));
         }
     }
 }

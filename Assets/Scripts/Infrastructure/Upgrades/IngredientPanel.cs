@@ -23,7 +23,7 @@ public class IngredientPanel : MonoBehaviour
     public void UpdateInfoByData(ItemData itemData, int amount)
     {
         _ingredientData = itemData;
-        bool isCanPickIt = amount >= 0;
+        bool isCanPickIt = amount > 0;
         iconImage.sprite = _ingredientData.ItemView.ItemSprite;
         nameText.text = $"{_ingredientData.ItemName}";
         amountText.text = $"{amount}";
@@ -33,7 +33,7 @@ public class IngredientPanel : MonoBehaviour
         if (isCanPickIt)
             pickButton.Clicked += PickUpgradeClick;
 
-        panelImage.gameObject.SetActive(amount != 0);
+        panelImage.gameObject.SetActive(true);
 
         coverGo.SetActive(!isCanPickIt);
     }
@@ -45,6 +45,7 @@ public class IngredientPanel : MonoBehaviour
 
     private void PickUpgradeClick()
     {
+        Debug.Log($"PickUpgradeClick");
         PickIngredient?.Invoke(_ingredientData);
     }
 }

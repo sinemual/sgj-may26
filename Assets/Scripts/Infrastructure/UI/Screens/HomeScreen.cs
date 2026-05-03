@@ -65,7 +65,7 @@ public class HomeScreen : BaseScreen
 
     public void UpdateTadpoleNameText(string tadpoleName)
     {
-        tadpoleNameText.text = $"{tadpoleName}";
+        tadpoleNameText.text = tadpoleName == "Empty" ? $"Пусто" : $"\"{tadpoleName}\"";
 
         Tween.PunchScale(
             target: tadpoleNameText.transform,

@@ -29,18 +29,22 @@ namespace Data
         [field: SerializeField] public float DistanceToTriggerInteraction { get; private set; }
         [field: SerializeField] public float TimeToTriggerInteraction { get; private set; }
         [field: SerializeField] public float ReloadingMovementTime { get; private set; }
-        [field: SerializeField] public float ThinkingTime { get; private set; }
         [field: SerializeField] public float RandomTargetRadius { get; private set; }
         [field: SerializeField] public float BotRandomTargetRadius { get; private set; }
         [field: SerializeField] public float BotCheckPointRadius { get; private set; }
-        [field: SerializeField] public float DebugSpeed { get; private set; }
         [field: SerializeField] public float CaviarMoveSpeed { get; private set; }
+        [field: SerializeField] public float DamageSpeedTrasholdValue { get; private set; }
+        [field: SerializeField] public float SpawnReloadingTime { get; private set; }
+        [field: SerializeField] public float DamageSpeedMultiplier { get; private set; }
         [field: SerializeField] public SerializedDictionary<IngredientType, float> SpawnIngredientChanceByType { get; private set; }
         [field: SerializeField] public SerializedDictionary<RaceStep, int> RaceParticipantsAmountByStep { get; private set; }
 
-        [Header("Character")]
-        [field: SerializeField]
-        public float CharacterRotateSpeed { get; private set; }
+        [Header("Stats")]
+        [field: SerializeField] public float MoveSpeedMultiplier { get; private set; }
+        [field: SerializeField] public float RotateSpeedMultiplier { get; private set; }
+        [field: SerializeField] public float FatPenaltyMultiplier { get; private set; }
+        [field: SerializeField] public float ThinkingTimeMultiplier { get; private set; }
+        [field: SerializeField] public float IntelligenceMultiplier { get; private set; }
 
         [Header("Physic Balance")]
         [field: SerializeField]

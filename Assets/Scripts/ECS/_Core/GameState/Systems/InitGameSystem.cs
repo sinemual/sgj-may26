@@ -30,7 +30,8 @@ namespace Client
             //_world.NewEntity().Get<SpawnLevelRequest>();
 
             //_world.NewEntity().Get<SpawnMenuLevelRequest>();
-
+            _data.RuntimeData.CurrentTadpole = -1;
+            
             _audioService.Play(Sounds.MusicGameplaySound);
             _ui.ShowScreen<GameScreen>();
             _ui.ShowScreen<HomeScreen>();

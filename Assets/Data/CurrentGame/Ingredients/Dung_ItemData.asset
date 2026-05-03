@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: dung_itemdata
   IngredientType: 3
   Rarity: 0
-  ItemName: Dung
+  ItemName: "\u041D\u0430\u0432\u043E\u0437"
   ItemDescription: 
   Price: 0
   Level: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
     ItemSprite: {fileID: -76998827, guid: 31599a359d6985f449428ec0396e2d3c, type: 3}
     ItemPrefab: {fileID: 1660273857823092328, guid: a3bc2c624ee5cc041bdf297f64575a14,
       type: 3}
-    DropItemPrefab: {fileID: 1660273857823092328, guid: a3bc2c624ee5cc041bdf297f64575a14,
+    DropItemPrefab: {fileID: 1660273857823092328, guid: eb3c6f973bb982b49ba99db6a0c077d5,
       type: 3}
   Size: {x: 0, y: 0, z: 0}
   StatType: 0

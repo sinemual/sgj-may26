@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Client
 {
-    public class TadpoleTargetSystem : IEcsRunSystem
+    public class TadpoleThinkingSystem : IEcsRunSystem
     {
         private SharedData _data;
         private CameraService _cameraService;
@@ -28,6 +28,7 @@ namespace Client
                 ref var entityGo = ref entity.Get<GameObjectProvider>().Value;
                 ref var animator = ref entity.Get<AnimatorProvider>().Value;
                 ref var entityRb = ref entity.Get<RigidbodyProvider>().Value;
+                ref var stats = ref entity.Get<Stats>().Value;
 
                 Vector3 random = Random.onUnitSphere * _data.BalanceData.RandomTargetRadius;
                 random = random.SetY(0.0f);
@@ -41,7 +42,7 @@ namespace Client
                 }
 
                 entity.Get<Target>().Value = target;
-                entity.Get<Timer<ThinkingTimer>>().Value = _data.BalanceData.ThinkingTime;
+                entity.Get<Timer<ThinkingTimer>>().Value = (1.0f - stats[StatType.Intelligence].GetValue()) * _data.BalanceData.ThinkingTimeMultiplier;
 
                 if (entity.Has<PlayerTag>()) // debug
                     _data.SceneData.RealTarget.position = target;

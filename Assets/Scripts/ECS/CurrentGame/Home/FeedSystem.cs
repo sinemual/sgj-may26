@@ -21,9 +21,18 @@ namespace Client
             {
                 ref var entity = ref _filter.GetEntity(idx);
 
-                _data.SaveData.TadpoleSaveData[_data.RuntimeData.CurrentTadpole].Fat += 1;
+                if (_data.RuntimeData.CurrentTadpole == -1)
+                {
+                    entity.Del<FeedRequest>();
+                    continue;
+                }
+
+                _data.SaveData.TadpoleSaveData[_data.RuntimeData.CurrentTadpole].FatAmount += 0.1f;
                 _data.SaveData.TadpoleSaveData[_data.RuntimeData.CurrentTadpole].IsFed = true;
-                
+
+                _prefabFactory.Spawn(_data.StaticData.PrefabData.FoodPrefab,
+                    _data.SceneData.SpawnFoodPoint.position, Quaternion.identity);
+
                 entity.Del<FeedRequest>();
             }
         }

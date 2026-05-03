@@ -15,6 +15,7 @@ namespace Client.Data
         public GameObject GatheringStepPrefab;
         public GameObject CatchingStepPrefab;
         public GameObject HomeStepPrefab;
+        public GameObject FoodPrefab;
 
         [Header("Prefabs - VFXs")] 
         public GameObject BloodVfxPrefab;

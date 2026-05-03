@@ -2,6 +2,7 @@
 using Client.Factories;
 using Client.Infrastructure.UI;
 using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Client
 {
@@ -29,6 +30,20 @@ namespace Client
                     if (_data.SaveData.TadpoleByJar[i] != -1)
                     {
                         var data = _data.SaveData.TadpoleSaveData[_data.SaveData.TadpoleByJar[i]];
+                        if (data.IsDead)
+                        {
+                            foreach (var idz in _tadpoleFilter)
+                            {
+                                ref var tadpoleEntity = ref _tadpoleFilter.GetEntity(idz);
+                                if (tadpoleEntity.Get<SaveId>().Value == _data.SaveData.TadpoleByJar[i])
+                                {
+                                    _prefabFactory.Despawn(ref tadpoleEntity);
+                                    _ui.GetScreen<HomeScreen>().UpdateNumberText(" ");
+                                    _ui.GetScreen<HomeScreen>().UpdateTadpoleNameText("Empty");
+                                }
+                            }
+                        }
+
                         if (!data.IsFed)
                         {
                             data.IsDead = true;
@@ -43,17 +58,20 @@ namespace Client
                 foreach (var idz in _tadpoleFilter)
                 {
                     ref var tadpoleEntity = ref _tadpoleFilter.GetEntity(idz);
-                    tadpoleEntity.Get<UpdateStateRequest>();
+                    Debug.Log($"{tadpoleEntity.Get<GameObjectProvider>().Value}", tadpoleEntity.Get<GameObjectProvider>().Value);
+                    tadpoleEntity.Get<UpdateTadpoleViewRequest>();
                 }
-                
+
+                _data.RuntimeData.IsTodayGathered = false;
                 _ui.GetScreen<GameScreen>().UpdateDayText(_data.SaveData.Day);
+                
 
                 entity.Del<SleepRequest>();
             }
         }
     }
 
-    public struct UpdateStateRequest : IEcsIgnoreInFilter
+    public struct UpdateTadpoleViewRequest : IEcsIgnoreInFilter
     {
     }
 }

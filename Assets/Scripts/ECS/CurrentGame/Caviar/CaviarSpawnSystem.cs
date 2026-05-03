@@ -32,7 +32,7 @@ namespace Client
                     caviarEntity.Get<TadpoleDataComponent>().Value = data;
                 }
 
-                entity.Get<Timer<ReloadingTimer>>().Value = 1.0f;
+                entity.Get<Timer<ReloadingTimer>>().Value = _data.BalanceData.SpawnReloadingTime;
             }
         }
     }

@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: pinecone_itemdata
   IngredientType: 6
   Rarity: 0
-  ItemName: Pine Cone
+  ItemName: "\u0428\u0438\u0448\u043A\u0430"
   ItemDescription: 
   Price: 0
   Level: 0
@@ -24,11 +24,11 @@ MonoBehaviour:
     ItemSprite: {fileID: -1206821675, guid: 31599a359d6985f449428ec0396e2d3c, type: 3}
     ItemPrefab: {fileID: 1660273857823092328, guid: 2e0dd2fdddc806543af0c97f4f134e3a,
       type: 3}
-    DropItemPrefab: {fileID: 1660273857823092328, guid: 2e0dd2fdddc806543af0c97f4f134e3a,
+    DropItemPrefab: {fileID: 1660273857823092328, guid: 4821cbe824b31a84497f2beb84a6f21c,
       type: 3}
   Size: {x: 0, y: 0, z: 0}
-  StatType: 0
-  StatModifierType: 1
+  StatType: 1
+  StatModifierType: 0
   StatModifierValue:
     growthType: 3
     maxValue: 1

@@ -21,7 +21,7 @@ namespace Client
                 ref var entity = ref _filter.GetEntity(idx);
                 ref var date = ref entity.Get<ItemDataComponent>().Value;
 
-                _data.SaveData.Ingredients[date.IngredientType] += Random.Range(1, 4);
+                _data.SaveData.Ingredients[date.IngredientType] += 1; // Random.Range(1, 4);
                 _prefabFactory.Despawn(ref entity);
             }
         }

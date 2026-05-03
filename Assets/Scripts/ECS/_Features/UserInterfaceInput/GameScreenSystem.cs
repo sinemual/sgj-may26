@@ -25,7 +25,7 @@ namespace Client
                 
             _ui.GetScreen<GameScreen>().PauseButtonClick += () =>
             {
-                Time.timeScale = 0.0f;
+                //Time.timeScale = 0.0f;
                 _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.Pause;
                 _ui.ShowScreen<SettingsScreen>();
                 _ui.GetScreen<SettingsScreen>().UpdateView();

@@ -30,6 +30,7 @@ namespace Data
         public int FinishersCounter;
         public int CurrentTadpole;
         public int CurrentHomePoint;
+        public bool IsTodayGathered;
         
         public void InjectData(SharedData sharedData) => base.SharedData = sharedData;
 
@@ -83,6 +84,8 @@ namespace Data
                     stats.Value[ingredientData.StatType].AddModifier(statModifier);
                     stats.Value[ingredientData.StatType].SaveThisUpgradeModifier();
                 }
+
+            stats.Value[StatType.Fat].SetAllValues(SharedData.SaveData.TadpoleSaveData[saveId].FatAmount);
         }
     }
 

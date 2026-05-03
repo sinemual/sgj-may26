@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: berry_itemdata
   IngredientType: 4
   Rarity: 0
-  ItemName: Berry
+  ItemName: "\u042F\u0433\u043E\u0434\u0430"
   ItemDescription: 
   Price: 0
   Level: 0
@@ -24,11 +24,11 @@ MonoBehaviour:
     ItemSprite: {fileID: 207874296, guid: 31599a359d6985f449428ec0396e2d3c, type: 3}
     ItemPrefab: {fileID: 1660273857823092328, guid: 8b8ca3d16b10da24b88e5fd5b4989ff4,
       type: 3}
-    DropItemPrefab: {fileID: 1660273857823092328, guid: 8b8ca3d16b10da24b88e5fd5b4989ff4,
+    DropItemPrefab: {fileID: 1660273857823092328, guid: 455eceb7861ad924587bdd2ae2f080a8,
       type: 3}
   Size: {x: 0, y: 0, z: 0}
   StatType: 8
-  StatModifierType: 2
+  StatModifierType: 0
   StatModifierValue:
     growthType: 3
     maxValue: 1

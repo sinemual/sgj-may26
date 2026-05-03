@@ -1,4 +1,5 @@
-﻿using Client.Data.Core;
+﻿using Client.Data;
+using Client.Data.Core;
 using Client.Factories;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -25,12 +26,17 @@ namespace Client
                 {
                     if (_data.SaveData.TadpoleByJar[i] != -1)
                     {
-                        var playerData =
+                        var data =
                             _data.StaticData.TadpoleDataByType[_data.SaveData.TadpoleSaveData[_data.SaveData.TadpoleByJar[i]].TadpoleType];
-                        EcsEntity playerEntity = _prefabFactory.Spawn(playerData.Prefab, spawnPoints[i].position, spawnPoints[i].rotation, entityGo.transform);
-                        playerEntity.Get<TadpoleDataComponent>().Value = playerData;
+                        
+                        
+                        EcsEntity playerEntity = _prefabFactory.Spawn(data.Prefab, spawnPoints[i].position, spawnPoints[i].rotation, entityGo.transform);
+                        playerEntity.Get<TadpoleDataComponent>().Value = data;
                         playerEntity.Get<SaveId>().Value = _data.SaveData.TadpoleByJar[i];
                         playerEntity.Get<RigidbodyProvider>().Value.isKinematic = true;
+                        playerEntity.Get<UpdateTadpoleViewRequest>();
+                        playerEntity.Get<TadpoleProvider>().Collider.enabled = false;
+                        playerEntity.Get<AnimatorProvider>().Value.SetTrigger(Animations.IsInJar);
                     }
                 }
                 

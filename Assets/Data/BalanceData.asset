@@ -31,12 +31,13 @@ MonoBehaviour:
   <DistanceToTriggerInteraction>k__BackingField: 1.25
   <TimeToTriggerInteraction>k__BackingField: 1
   <ReloadingMovementTime>k__BackingField: 0.1
-  <ThinkingTime>k__BackingField: 2
   <RandomTargetRadius>k__BackingField: 5
   <BotRandomTargetRadius>k__BackingField: 0
   <BotCheckPointRadius>k__BackingField: 3
-  <DebugSpeed>k__BackingField: 1.4
   <CaviarMoveSpeed>k__BackingField: 0.59
+  <DamageSpeedTrasholdValue>k__BackingField: 1
+  <SpawnReloadingTime>k__BackingField: 5
+  <DamageSpeedMultiplier>k__BackingField: 1
   <SpawnIngredientChanceByType>k__BackingField:
     _serializedList:
     - Key: 7
@@ -57,7 +58,11 @@ MonoBehaviour:
       Value: 3
     - Key: 2
       Value: 3
-  <CharacterRotateSpeed>k__BackingField: 97.79
+  <MoveSpeedMultiplier>k__BackingField: 1.4
+  <RotateSpeedMultiplier>k__BackingField: 95
+  <FatPenaltyMultiplier>k__BackingField: 0.1
+  <ThinkingTimeMultiplier>k__BackingField: 2
+  <IntelligenceMultiplier>k__BackingField: 1
   <LaunchDropItemForce>k__BackingField: {x: 150, y: 200}
   <ExplosionRadius>k__BackingField: 3
   <ExplosionForce>k__BackingField: 3
