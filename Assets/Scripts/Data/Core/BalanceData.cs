@@ -35,7 +35,7 @@ namespace Data
         [field: SerializeField] public float BotCheckPointRadius { get; private set; }
         [field: SerializeField] public float DebugSpeed { get; private set; }
         [field: SerializeField] public float CaviarMoveSpeed { get; private set; }
-        [field: SerializeField] public SerializedDictionary<IngredientType, float> SpawnItemChanceByType { get; private set; }
+        [field: SerializeField] public SerializedDictionary<IngredientType, float> SpawnIngredientChanceByType { get; private set; }
         [field: SerializeField] public SerializedDictionary<RaceStep, int> RaceParticipantsAmountByStep { get; private set; }
 
         [Header("Character")]

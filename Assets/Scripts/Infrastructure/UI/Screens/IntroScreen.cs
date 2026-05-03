@@ -7,19 +7,12 @@ using UnityEngine.UI;
 
 public class IntroScreen : BaseScreen
 {
-    [SerializeField] private TextMeshProUGUI moneyText;
-    [SerializeField] private TextMeshProUGUI progressText;
-    [SerializeField] private UIButton pauseButton;
+    [SerializeField] private UIButton skipButton;
 
-    [Header("Level Progress Bar")] [SerializeField]
-    private TextMeshProUGUI levelText;
-
-    [SerializeField] private Image levelProgressMoveBarFill;
-
-    public event Action PauseButtonClick;
+    public event Action SkipButtonClick;
     protected override void ManualStart()
     {
-        pauseButton.Clicked += OnPauseButtonClick;
+        skipButton.Clicked += OnSkipButtonClick;
         ShowScreen += UpdateView;
     }
 
@@ -27,9 +20,9 @@ public class IntroScreen : BaseScreen
     {
     }
 
-    private void OnPauseButtonClick() => PauseButtonClick?.Invoke();
+    private void OnSkipButtonClick() => SkipButtonClick?.Invoke();
 
-    public void UpdateMoneyText(int moneyAmount)
+    /*public void UpdateMoneyText(int moneyAmount)
     {
         //moneyText.text = $"{Utility.Format(moneyCount)}"; // money sprite
         int currentMoney = moneyAmount;
@@ -50,5 +43,5 @@ public class IntroScreen : BaseScreen
     }
 
     public void UpdateLevelText(int level) => levelText.text = $"Level {level + 1}";
-    public void UpdateLevelText(string levelName) => levelText.text = $"{levelName}";
+    public void UpdateLevelText(string levelName) => levelText.text = $"{levelName}";*/
 }

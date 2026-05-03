@@ -22,6 +22,7 @@ namespace Client.Data
 
         [Header("Tutorials & Tasks")] 
         //public SerializedDictionary<TutorialStep, bool> TutorDependenceByStep;
+        public SerializedDictionary<float, Color> ColorByValue;
         public List<TutorialData> TutorialData;
         public Dictionary<TutorialStep, TutorialData> TutorialDataByStep;
         

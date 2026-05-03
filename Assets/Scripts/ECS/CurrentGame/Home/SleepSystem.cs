@@ -40,8 +40,20 @@ namespace Client
                     }
                 }
 
+                foreach (var idz in _tadpoleFilter)
+                {
+                    ref var tadpoleEntity = ref _tadpoleFilter.GetEntity(idz);
+                    tadpoleEntity.Get<UpdateStateRequest>();
+                }
+                
+                _ui.GetScreen<GameScreen>().UpdateDayText(_data.SaveData.Day);
+
                 entity.Del<SleepRequest>();
             }
         }
+    }
+
+    public struct UpdateStateRequest : IEcsIgnoreInFilter
+    {
     }
 }

@@ -13,8 +13,6 @@ namespace Client
         private UserInterface _ui;
         private AudioService _audioService;
 
-        private EcsFilter<HeroProvider> _playerFilter;
-
         public void Init()
         {
             _ui.GetScreen<WinScreen>().ShowScreen += () =>
@@ -49,7 +47,9 @@ namespace Client
             _ui.GetScreen<WinScreen>().NextStepButtonClick += () =>
             {
                 _data.RuntimeData.RaceStep += 1;
-                _world.NewEntity().Get<StartRaceRequest>();
+                EcsEntity goToRequestEntity = _world.NewEntity();
+                goToRequestEntity.Get<StartRaceRequest>();
+                goToRequestEntity.Get<DespawnLevelRequest>();
                 _ui.HideScreen<WinScreen>();
                 _audioService.Play(Sounds.UiClickSound);
             };

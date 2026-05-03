@@ -37,8 +37,18 @@ MonoBehaviour:
   <BotCheckPointRadius>k__BackingField: 3
   <DebugSpeed>k__BackingField: 1.4
   <CaviarMoveSpeed>k__BackingField: 0.59
-  <SpawnItemChanceByType>k__BackingField:
-    _serializedList: []
+  <SpawnIngredientChanceByType>k__BackingField:
+    _serializedList:
+    - Key: 7
+      Value: 0.8
+    - Key: 4
+      Value: 0.6
+    - Key: 6
+      Value: 0.4
+    - Key: 5
+      Value: 0.2
+    - Key: 3
+      Value: 0.1
   <RaceParticipantsAmountByStep>k__BackingField:
     _serializedList:
     - Key: 0

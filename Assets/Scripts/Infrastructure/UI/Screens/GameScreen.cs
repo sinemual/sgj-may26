@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class GameScreen : BaseScreen
 {
     //[SerializeField] private TextMeshProUGUI moneyText;
-    //[SerializeField] private TextMeshProUGUI progressText;
+    [SerializeField] private TextMeshProUGUI dayText;
     [SerializeField] private Image sleepImage;
     [SerializeField] private UIButton pauseButton;
     
@@ -78,6 +78,17 @@ public class GameScreen : BaseScreen
             strength: Vector3.one * 0.1f,
             duration: 0.15f
         );*/
+    }
+    
+    public void UpdateDayText(int dayNum)
+    {
+        dayText.text = $"День: {dayNum}";
+
+        Tween.PunchScale(
+            target: dayText.transform,
+            strength: Vector3.one * 0.1f,
+            duration: 0.15f
+        );
     }
     
     public void Sleep()

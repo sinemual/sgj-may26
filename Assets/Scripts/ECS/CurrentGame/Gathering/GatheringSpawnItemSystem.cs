@@ -29,7 +29,7 @@ namespace Client
 
                         foreach (var item in _data.StaticData.ItemData)
                         {
-                            if (random >= _data.BalanceData.SpawnItemChanceByType[item.IngredientType])
+                            if (random >= _data.BalanceData.SpawnIngredientChanceByType[item.IngredientType])
                             {
                                 EcsEntity spawnItemEntity = _prefabFactory.Spawn(item.ItemView.ItemPrefab, spawnPoint.position, Quaternion.identity);
                                 spawnItemEntity.Get<ItemDataComponent>().Value = item;

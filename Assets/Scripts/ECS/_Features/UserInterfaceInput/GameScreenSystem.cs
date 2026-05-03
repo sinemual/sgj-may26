@@ -18,6 +18,11 @@ namespace Client
 
         public void Init()
         {
+            _ui.GetScreen<GameScreen>().ShowScreen += () =>
+            {
+                _ui.GetScreen<GameScreen>().UpdateDayText(_data.SaveData.Day);
+            };
+                
             _ui.GetScreen<GameScreen>().PauseButtonClick += () =>
             {
                 Time.timeScale = 0.0f;

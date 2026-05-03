@@ -294,6 +294,7 @@ namespace Client
                 .Add(new GameScreenSystem())
                 .Add(new HomeScreenSystem())
                 .Add(new WinScreenSystem())
+                .Add(new IntroAndOutroScreenSystem())
                 .Add(new LoseScreenSystem())
                 .Add(new GatheringScreenSystem())
                 .Add(new CatchingScreenSystem())
