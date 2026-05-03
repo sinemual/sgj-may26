@@ -1,4 +1,5 @@
-﻿using Client.Data.Core;
+﻿using Client.Data;
+using Client.Data.Core;
 using Client.Infrastructure.UI;
 using Leopotam.Ecs;
 
@@ -21,6 +22,7 @@ namespace Client
             _ui.GetScreen<OutroScreen>().SkipButtonClick += () =>
             {
                 _ui.HideScreen<OutroScreen>();
+                _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.HomeStep;
             };
         }
     }

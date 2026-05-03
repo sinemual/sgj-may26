@@ -37,6 +37,7 @@ namespace Client
                 if ((int)_data.RuntimeData.RaceStep == 2)
                 {
                     _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.GameEnd;
+                    _ui.ShowScreen<OutroScreen>();
                 }
                 else
                 {

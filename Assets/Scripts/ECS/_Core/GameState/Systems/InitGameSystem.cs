@@ -34,6 +34,7 @@ namespace Client
             _audioService.Play(Sounds.MusicGameplaySound);
             _ui.ShowScreen<GameScreen>();
             _ui.ShowScreen<HomeScreen>();
+            _ui.ShowScreen<IntroScreen>();
             _ui.ReorderScreens();
             
             //_ui.ShowScreen<SettingsScreen>();
