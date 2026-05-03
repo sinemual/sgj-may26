@@ -1,6 +1,7 @@
 ﻿using Client.Data;
 using Client.Data.Core;
 using Client.Infrastructure.UI;
+using Data;
 using Leopotam.Ecs;
 
 namespace Client
@@ -47,6 +48,14 @@ namespace Client
                 if (_data.RuntimeData.CurrentGameStateType == GameStateType.RaceStep)
                 {
                     _ui.HideScreen<HomeScreen>();
+                }
+                
+                
+                if (_data.RuntimeData.CurrentGameStateType == GameStateType.GameEnd)
+                {
+                    _ui.ShowScreen<OutroScreen>();
+                    _ui.GetScreen<GameScreen>().ShowTextPanel(_data.StaticData.TextData.Texts[TextType.Outro]);
+                    _ui.ReorderScreens();
                 }
             }
         }

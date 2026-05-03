@@ -3,6 +3,7 @@ using Client.Data;
 using Client.Data.Core;
 using Client.Infrastructure.Services;
 using Client.Infrastructure.UI;
+using Data;
 using Leopotam.Ecs;
 using SRDebugger;
 using UnityEngine;
@@ -63,9 +64,12 @@ namespace Client
 
             if (Input.GetKeyDown(KeyCode.M))
                 CheatGetMoney();
-            
+
             if (Input.GetKeyDown(KeyCode.Y))
                 CheatGetIngredients();
+            
+            if (Input.GetKeyDown(KeyCode.O))
+                CheatEnding();
 
             if (Input.GetKeyDown(KeyCode.J))
             {
@@ -79,7 +83,7 @@ namespace Client
         {
             _world.NewEntity().Get<AddCurrencyRequest>().Value = 100;
         }
-        
+
         private void CheatGetIngredients()
         {
             _data.SaveData.Ingredients[IngredientType.Berry] += 10;
@@ -88,7 +92,13 @@ namespace Client
             _data.SaveData.Ingredients[IngredientType.Mushroom] += 10;
             _data.SaveData.Ingredients[IngredientType.PineCone] += 10;
         }
-        
+
+        private void CheatEnding()
+        {
+            _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.GameEnd;
+            _data.RuntimeData.RaceStep = 0;
+        }
+
         private void CheatGetHeroLevel() => _data.SaveData.PlayerLevel += 10;
 
         private void CheatNextLevel()

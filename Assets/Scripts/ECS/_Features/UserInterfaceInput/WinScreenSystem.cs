@@ -38,8 +38,6 @@ namespace Client
                 if ((int)_data.RuntimeData.RaceStep == 2)
                 {
                     _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.GameEnd;
-                    _ui.ShowScreen<OutroScreen>();
-                    _ui.GetScreen<GameScreen>().ShowTextPanel(_data.StaticData.TextData.Texts[TextType.Outro]);
                     _data.RuntimeData.RaceStep = 0;
                 }
                 else

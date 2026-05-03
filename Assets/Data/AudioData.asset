@@ -62,10 +62,10 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: lure
     clip: {fileID: 8300000, guid: 5f7166f963931d24dabfa4eee6f62697, type: 3}
-    volume: 0.305
+    volume: 0.155
     volumeVariance: 0.1
     pitch: 1
-    pitchVariance: 0.1
+    pitchVariance: 0.176
     loop: 0
     mixer: {fileID: 24300002, guid: 04e6439ff5cc50b479edd5dc64fd6b1f, type: 2}
     source: {fileID: 0}
