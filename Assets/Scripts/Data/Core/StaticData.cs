@@ -27,6 +27,7 @@ namespace Client.Data
         public List<TutorialData> TutorialData;
         public Dictionary<TutorialStep, TutorialData> TutorialDataByStep;
         
+        public TextData TextData;
         public List<TadpoleData> TadpoleData;
         public Dictionary<TadpoleType, TadpoleData> TadpoleDataByType;
         

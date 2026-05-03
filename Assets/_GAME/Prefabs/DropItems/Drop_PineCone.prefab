@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4837542210422209984}
   - component: {fileID: 6822089215988517676}
   - component: {fileID: 7709908911859698876}
+  - component: {fileID: -4372102328287611428}
   m_Layer: 15
   m_Name: Drop_PineCone
   m_TagString: Untagged
@@ -110,6 +111,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.19
   m_Center: {x: 0, y: 0.14, z: 0}
+--- !u!114 &-4372102328287611428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660273857823092328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50514cc8a7e9440296ba2078f169447e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FeedTagMonoProvider
 --- !u!1001 &2252057970296282279
 PrefabInstance:
   m_ObjectHideFlags: 0

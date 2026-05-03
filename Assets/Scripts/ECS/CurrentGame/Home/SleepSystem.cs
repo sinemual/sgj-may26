@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.ECS._Features.Stats;
 using Client.Data;
 using Client.Data.Core;
+using Client.ECS.CurrentGame.Mining;
 using Client.Factories;
 using Client.Infrastructure.UI;
 using Leopotam.Ecs;
@@ -16,7 +17,7 @@ namespace Client
         private UserInterface _ui;
         private AudioService _audioService;
 
-        private EcsFilter<SleepRequest> _filter;
+        private EcsFilter<SleepRequest>.Exclude<Timer<DelayTimer>> _filter;
         private EcsFilter<TadpoleProvider>.Exclude<DeadState> _tadpoleFilter;
 
         public void Run()
@@ -26,7 +27,6 @@ namespace Client
                 ref var entity = ref _filter.GetEntity(idx);
 
                 _data.SaveData.Day += 1;
-                _ui.GetScreen<GameScreen>().Sleep();
 
                 for (int i = 0; i < _data.SaveData.TadpoleByJar.Length; i++)
                 {
@@ -35,7 +35,7 @@ namespace Client
                         var data = _data.SaveData.TadpoleSaveData[_data.SaveData.TadpoleByJar[i]];
                         if (data.IsDead)
                         {
-                            Debug.Log($"data.IsDead {data.IsDead}");
+                           // Debug.Log($"data.IsDead {data.IsDead}");
                             foreach (var idz in _tadpoleFilter)
                             {
                                 ref var tadpoleEntity = ref _tadpoleFilter.GetEntity(idz);

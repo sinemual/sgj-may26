@@ -32,7 +32,7 @@ namespace Client
                     if (currentPoint >= botPath.Length)
                     {
                         if (entity.Has<FinisherMarker>())
-                            entity.Get<LureRequest>().Position = botPath[currentPoint].position;
+                            entity.Get<LureRequest>().Position = botPath[currentPoint - 1].position;
                         return;
                     }
                     //Debug.Log($"currentPoint {currentPoint}");

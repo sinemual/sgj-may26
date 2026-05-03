@@ -2,6 +2,7 @@
 using Client.Data.Core;
 using Client.Factories;
 using Client.Infrastructure.UI;
+using Data;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -24,6 +25,8 @@ namespace Client
                 ref var spawnPoints = ref entity.Get<HomeProvider>().SpawnPoints;
                 ref var entityGo = ref entity.Get<GameObjectProvider>().Value;
 
+                _ui.GetScreen<GameScreen>().ShowTextPanel(_data.StaticData.TextData.Texts[TextType.HomeScreen]);
+                
                 for (int i = 0; i < _data.SaveData.TadpoleByJar.Length; i++)
                 {
                     if (_data.SaveData.TadpoleByJar[i] != -1)

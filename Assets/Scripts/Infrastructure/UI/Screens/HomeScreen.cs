@@ -20,12 +20,25 @@ public class HomeScreen : BaseScreen
     [SerializeField] private UIButton previousButton;
     [SerializeField] private IngredientsPanel ingredientsPanel;
 
+    [SerializeField] private UIButton startRaceButton;
+    [SerializeField] private UIButton goToGatheringButton;
+    [SerializeField] private UIButton goToCatchingButton;
+    
     public event Action FeedButtonClick;
     public event Action FlushButtonClick;
     public event Action SleepButtonClick;
     public event Action<ItemData> AddIngredientButtonClick;
     public event Action NextButtonClick;
     public event Action PreviousButtonButtonClick;
+    public event Action StartRaceButtonClick;
+    public event Action GoToGatheringButtonClick;
+    public event Action GoToCatchingButtonClick;
+    
+    public UIButton StartRaceButton => startRaceButton;
+
+    public UIButton GoToGatheringButton => goToGatheringButton;
+
+    public UIButton GoToCatchingButton => goToCatchingButton;
 
 
     protected override void ManualStart()
@@ -34,6 +47,9 @@ public class HomeScreen : BaseScreen
         flushButton.Clicked += OnFlushButtonClick;
         sleepButton.Clicked += OnSleepButtonClick;
         //addIngredientButton.Clicked += OnAddIngredientButtonClick;
+        StartRaceButton.Clicked += OnStartRaceButtonClick;
+        GoToGatheringButton.Clicked += OnGoToGatheringButtonClick;
+        GoToCatchingButton.Clicked += OnGoToCatchingButtonClick;
         nextButton.Clicked += OnNextButtonClick;
         previousButton.Clicked += OnPreviousButtonButtonClick;
 
@@ -50,6 +66,9 @@ public class HomeScreen : BaseScreen
     //private void OnAddIngredientButtonClick() => AddIngredientButtonClick?.Invoke();
     private void OnNextButtonClick() => NextButtonClick?.Invoke();
     private void OnPreviousButtonButtonClick() => PreviousButtonButtonClick?.Invoke();
+    private void OnStartRaceButtonClick() => StartRaceButtonClick?.Invoke();
+    private void OnGoToGatheringButtonClick() => GoToGatheringButtonClick?.Invoke();
+    private void OnGoToCatchingButtonClick() => GoToCatchingButtonClick?.Invoke();
 
     public void UpdateIngredients(Dictionary<IngredientType, int> playerIngredients, List<ItemData> allIngredients)
     {

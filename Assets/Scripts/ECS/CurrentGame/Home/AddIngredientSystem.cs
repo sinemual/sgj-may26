@@ -1,6 +1,7 @@
 ﻿using Client.Data.Core;
 using Client.Factories;
 using Client.Infrastructure.UI;
+using Data;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -28,6 +29,7 @@ namespace Client
                     entity.Del<AddIngredientRequest>();
                     continue;
                 }
+                
                 
                 _data.SaveData.TadpoleSaveData[_data.RuntimeData.CurrentTadpole].Ingredients.TryAdd(ingredient.IngredientType, 0);
                 _data.SaveData.TadpoleSaveData[_data.RuntimeData.CurrentTadpole].IngredientsToday.TryAdd(ingredient.IngredientType, 0);

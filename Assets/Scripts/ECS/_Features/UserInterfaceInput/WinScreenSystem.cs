@@ -1,6 +1,7 @@
 ﻿using Client.Data;
 using Client.Data.Core;
 using Client.Infrastructure.UI;
+using Data;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -38,6 +39,7 @@ namespace Client
                 {
                     _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.GameEnd;
                     _ui.ShowScreen<OutroScreen>();
+                    _ui.GetScreen<GameScreen>().ShowTextPanel(_data.StaticData.TextData.Texts[TextType.Outro]);
                     _data.RuntimeData.RaceStep = 0;
                 }
                 else

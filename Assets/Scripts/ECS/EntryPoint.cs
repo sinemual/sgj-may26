@@ -154,6 +154,7 @@ namespace Client
                 //---Home---
                 .Add(new GoToHomeSystem())
                 .Add(new FeedSystem())
+                .Add(new FeedDestroySystem())
                 .Add(new AddIngredientSystem())
                 .Add(new SleepSystem())
                 .Add(new FlushSystem())

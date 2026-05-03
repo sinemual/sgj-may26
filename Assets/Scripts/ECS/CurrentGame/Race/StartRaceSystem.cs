@@ -1,6 +1,8 @@
 ﻿using Client.Data;
 using Client.Data.Core;
 using Client.Factories;
+using Client.Infrastructure.UI;
+using Data;
 using Leopotam.Ecs;
 using UnityEngine;
 using CameraType = Client.Data.CameraType;
@@ -14,6 +16,7 @@ namespace Client
         private PrefabFactory _prefabFactory;
         private CameraService _cameraService;
         private AudioService _audioService;
+        private UserInterface _ui;
 
         private EcsFilter<StartRaceRequest>.Exclude<DespawnLevelRequest> _filter;
         private EcsFilter<TadpoleProvider, PlayerTag> _playerFilter;
@@ -33,6 +36,7 @@ namespace Client
                 _prefabFactory.SetDefaultParent(stepEntity.Get<GameObjectProvider>().Value.transform);
                 _cameraService.SetCamera(CameraType.Race, isWarp: true);
                 _audioService.Play(Sounds.BulkSound);   
+                _ui.GetScreen<GameScreen>().ShowTextPanel(_data.StaticData.TextData.Texts[TextType.RaceStart]);
                 entity.Del<StartRaceRequest>();
             }
         }

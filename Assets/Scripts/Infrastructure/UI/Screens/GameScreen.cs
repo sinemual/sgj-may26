@@ -17,37 +17,27 @@ public class GameScreen : BaseScreen
     [SerializeField] private GameObject textPanel;
     [SerializeField] private Image sleepImage;
     [SerializeField] private UIButton pauseButton;
-    
-    [SerializeField] private UIButton startRaceButton;
-    [SerializeField] private UIButton goToGatheringButton;
-    [SerializeField] private UIButton goToCatchingButton;
+
     [SerializeField] private UIButton goToHomeButton;
-    
+
     /*[Header("Level Progress Bar")] [SerializeField]
     private TextMeshProUGUI levelText;
 
     [SerializeField] private Image levelProgressMoveBarFill;*/
 
     public event Action PauseButtonClick;
-    public event Action StartRaceButtonClick;
-    public event Action GoToGatheringButtonClick;
-    public event Action GoToCatchingButtonClick;
     public event Action GoToHomeButtonClick;
 
-    public UIButton StartRaceButton => startRaceButton;
-
-    public UIButton GoToGatheringButton => goToGatheringButton;
-
-    public UIButton GoToCatchingButton => goToCatchingButton;
-
+    
     public UIButton GoToHomeButton => goToHomeButton;
+
+    private Tween _textTween;
+
 
     protected override void ManualStart()
     {
         pauseButton.Clicked += OnPauseButtonClick;
-        StartRaceButton.Clicked += OnStartRaceButtonClick;
-        GoToGatheringButton.Clicked += OnGoToGatheringButtonClick;
-        GoToCatchingButton.Clicked += OnGoToCatchingButtonClick;
+        
         GoToHomeButton.Clicked += OnGoToHomeButtonClick;
         ShowScreen += UpdateView;
     }
@@ -57,9 +47,7 @@ public class GameScreen : BaseScreen
     }
 
     private void OnPauseButtonClick() => PauseButtonClick?.Invoke();
-    private void OnStartRaceButtonClick() => StartRaceButtonClick?.Invoke();
-    private void OnGoToGatheringButtonClick() => GoToGatheringButtonClick?.Invoke();
-    private void OnGoToCatchingButtonClick() => GoToCatchingButtonClick?.Invoke();
+    
     private void OnGoToHomeButtonClick() => GoToHomeButtonClick?.Invoke();
 
     public void UpdateMoneyText(int moneyAmount)
@@ -81,7 +69,7 @@ public class GameScreen : BaseScreen
             duration: 0.15f
         );*/
     }
-    
+
     public void UpdateDayText(int dayNum)
     {
         dayText.text = $"День: {dayNum}";
@@ -96,17 +84,35 @@ public class GameScreen : BaseScreen
     public void ShowTextPanel(string text)
     {
         textPanel.SetActive(true);
-        textText.text = text;
+        if (!_textTween.isAlive)
+            Play(text);
     }
-    
+
     public void HideTextPanel()
     {
         textPanel.SetActive(false);
     }
-    
+
     public void Sleep()
     {
-        Tween.Alpha(sleepImage, 1.0f, new TweenSettings(0.5f, Ease.InCubic, 2, CycleMode.Yoyo));
+        Tween.Alpha(sleepImage, 1.0f, new TweenSettings(1.0f, Ease.InCubic, 2, CycleMode.Yoyo));
+    }
+
+    private void Play(string fullText)
+    {
+        _textTween.Stop();
+
+        textText.text = fullText;
+        textText.ForceMeshUpdate();
+        textText.maxVisibleCharacters = 0;
+
+        int totalChars = textText.textInfo.characterCount;
+
+        _textTween = Tween.Custom(
+            0,
+            totalChars,
+            1.0f,
+            onValueChange: value => { textText.maxVisibleCharacters = Mathf.FloorToInt(value); });
     }
 
     /*public void UpdateLevelText(int level) => levelText.text = $"Level {level + 1}";

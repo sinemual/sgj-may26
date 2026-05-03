@@ -68,6 +68,7 @@ MonoBehaviour:
   BotColor: {r: 0.28930807, g: 0.28930807, b: 0.28930807, a: 1}
   TutorialData:
   - {fileID: 11400000, guid: 5cb533bd231c7f7418a7aaf158fe9df0, type: 2}
+  TextData: {fileID: 11400000, guid: c80943b8a8024cf47994fe062040bcfe, type: 2}
   TadpoleData:
   - {fileID: 11400000, guid: 46fed4d3a11befa4e91968bc232740b6, type: 2}
   ItemData:

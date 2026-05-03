@@ -18,10 +18,10 @@ namespace Client
             foreach (var idx in _eventFilter)
             {
                 ref var entity = ref _eventFilter.GetEntity(idx);
-
-                _ui.GetScreen<GameScreen>().GoToCatchingButton.gameObject.SetActive(false);
-                _ui.GetScreen<GameScreen>().GoToGatheringButton.gameObject.SetActive(false);
-                _ui.GetScreen<GameScreen>().StartRaceButton.gameObject.SetActive(false);
+                _ui.GetScreen<GameScreen>().HideTextPanel();
+                _ui.GetScreen<HomeScreen>().GoToCatchingButton.gameObject.SetActive(false);
+                _ui.GetScreen<HomeScreen>().GoToGatheringButton.gameObject.SetActive(false);
+                _ui.GetScreen<HomeScreen>().StartRaceButton.gameObject.SetActive(false);
                 _ui.GetScreen<GameScreen>().GoToHomeButton.gameObject.SetActive(false);
                 
                 if (_data.RuntimeData.CurrentGameStateType == GameStateType.CatchingStep)
@@ -38,9 +38,9 @@ namespace Client
                 
                 if (_data.RuntimeData.CurrentGameStateType == GameStateType.HomeStep)
                 {
-                    _ui.GetScreen<GameScreen>().GoToCatchingButton.gameObject.SetActive(true);
-                    _ui.GetScreen<GameScreen>().GoToGatheringButton.gameObject.SetActive(true);
-                    _ui.GetScreen<GameScreen>().StartRaceButton.gameObject.SetActive(true);
+                    _ui.GetScreen<HomeScreen>().GoToCatchingButton.gameObject.SetActive(true);
+                    _ui.GetScreen<HomeScreen>().GoToGatheringButton.gameObject.SetActive(true);
+                    _ui.GetScreen<HomeScreen>().StartRaceButton.gameObject.SetActive(true);
                     _ui.ShowScreen<HomeScreen>();
                 }
                 

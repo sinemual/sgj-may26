@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4837542210422209984}
   - component: {fileID: -4608867751103459860}
   - component: {fileID: 5364949796742480095}
+  - component: {fileID: 3225636196487680953}
   m_Layer: 15
   m_Name: Drop_Mushrooms
   m_TagString: Untagged
@@ -110,6 +111,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.24
   m_Center: {x: 0, y: 0.34, z: 0}
+--- !u!114 &3225636196487680953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660273857823092328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50514cc8a7e9440296ba2078f169447e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FeedTagMonoProvider
 --- !u!1001 &8587293719169940856
 PrefabInstance:
   m_ObjectHideFlags: 0

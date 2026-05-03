@@ -1,6 +1,7 @@
 ﻿using Client.Data;
 using Client.Data.Core;
 using Client.Data.Equip;
+using Client.ECS.CurrentGame.Mining;
 using Client.Infrastructure.UI;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -55,7 +56,10 @@ namespace Client
 
             _ui.GetScreen<HomeScreen>().SleepButtonClick += () =>
             {
-                _world.NewEntity().Get<SleepRequest>();
+                EcsEntity sleepRequestEntity = _world.NewEntity();
+                sleepRequestEntity.Get<Timer<DelayTimer>>().Value = 1.0f;
+                sleepRequestEntity.Get<SleepRequest>();
+                _ui.GetScreen<GameScreen>().Sleep();
                 _audioService.Play(Sounds.UiClickSound);
             };
 
@@ -68,6 +72,41 @@ namespace Client
             _ui.GetScreen<HomeScreen>().PreviousButtonButtonClick += () =>
             {
                 _world.NewEntity().Get<ChangeLookJarRequest>().IsNext = false;
+                _audioService.Play(Sounds.UiClickSound);
+            };
+            
+              
+            _ui.GetScreen<HomeScreen>().GoToCatchingButtonClick += () =>
+            {
+                _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.CatchingStep;
+                EcsEntity goToRequestEntity = _world.NewEntity();
+                goToRequestEntity.Get<GoToCatchingRequest>();
+                goToRequestEntity.Get<DespawnLevelRequest>();
+                _audioService.Play(Sounds.UiClickSound);
+            };
+            
+            _ui.GetScreen<HomeScreen>().GoToGatheringButtonClick += () =>
+            {
+                _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.GatheringStep;
+                EcsEntity goToRequestEntity = _world.NewEntity();
+                goToRequestEntity.Get<GoToGatheringRequest>();
+                goToRequestEntity.Get<DespawnLevelRequest>();
+                _audioService.Play(Sounds.UiClickSound);
+            };
+            
+                        
+            _ui.GetScreen<HomeScreen>().StartRaceButtonClick += () =>
+            {
+                if (_data.RuntimeData.CurrentTadpole == -1 || _data.SaveData.TadpoleSaveData[_data.RuntimeData.CurrentTadpole].MetamorphosisStep == 0)
+                {
+                    _audioService.Play(Sounds.UiClickSound);;
+                    return;
+                }
+                
+                _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.RaceStep;
+                EcsEntity goToRequestEntity = _world.NewEntity();
+                goToRequestEntity.Get<StartRaceRequest>();
+                goToRequestEntity.Get<DespawnLevelRequest>();
                 _audioService.Play(Sounds.UiClickSound);
             };
         }

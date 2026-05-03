@@ -16,6 +16,7 @@ namespace Client.Data
         public static readonly string LoseSound = "lose";
         public static readonly string LureSound = "lure";   
         public static readonly string BulkSound = "bulk";   
+        public static readonly string ChawSound = "chaw";   
 
         
         /*private static readonly List<string> CarHitSounds = new List<string>()

@@ -1,5 +1,7 @@
 ﻿using Client.Data.Core;
 using Client.Factories;
+using Client.Infrastructure.UI;
+using Data;
 using Leopotam.Ecs;
 using UnityEngine;
 using CameraType = Client.Data.CameraType;
@@ -12,6 +14,7 @@ namespace Client
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
         private CameraService _cameraService;
+        private UserInterface _ui;
 
         private EcsFilter<GoToCatchingRequest>.Exclude<DespawnLevelRequest> _filter;
         private EcsFilter<CurrentStepMarker> _currentStepFilter;
@@ -28,7 +31,7 @@ namespace Client
                 stepEntity.Get<CurrentStepMarker>();
                 _prefabFactory.SetDefaultParent(stepEntity.Get<GameObjectProvider>().Value.transform);
                 _cameraService.SetCamera(CameraType.Catching, isWarp: true);
-
+                _ui.GetScreen<GameScreen>().ShowTextPanel(_data.StaticData.TextData.Texts[TextType.Catching]);
                 var spawnPoint = stepEntity.Get<CathcingStepProvider>().TrapSpawnPoint;
                 EcsEntity trapEntity = 
                     _prefabFactory.Spawn(_data.StaticData.PrefabData.TrapPrefab, spawnPoint.position, Quaternion.identity);
