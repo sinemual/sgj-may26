@@ -63,6 +63,9 @@ namespace Client
 
             if (Input.GetKeyDown(KeyCode.M))
                 CheatGetMoney();
+            
+            if (Input.GetKeyDown(KeyCode.Y))
+                CheatGetIngredients();
 
             if (Input.GetKeyDown(KeyCode.J))
             {
@@ -75,6 +78,15 @@ namespace Client
         private void CheatGetMoney()
         {
             _world.NewEntity().Get<AddCurrencyRequest>().Value = 100;
+        }
+        
+        private void CheatGetIngredients()
+        {
+            _data.SaveData.Ingredients[IngredientType.Berry] += 10;
+            _data.SaveData.Ingredients[IngredientType.Dung] += 10;
+            _data.SaveData.Ingredients[IngredientType.Lavender] += 10;
+            _data.SaveData.Ingredients[IngredientType.Mushroom] += 10;
+            _data.SaveData.Ingredients[IngredientType.PineCone] += 10;
         }
         
         private void CheatGetHeroLevel() => _data.SaveData.PlayerLevel += 10;

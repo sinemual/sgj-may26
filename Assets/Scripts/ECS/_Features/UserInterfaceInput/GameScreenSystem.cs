@@ -61,6 +61,12 @@ namespace Client
             
             _ui.GetScreen<GameScreen>().StartRaceButtonClick += () =>
             {
+                if (_data.RuntimeData.CurrentTadpole == -1 || _data.SaveData.TadpoleSaveData[_data.RuntimeData.CurrentTadpole].MetamorphosisStep == 0)
+                {
+                    _audioService.Play(Sounds.UiClickSound);;
+                    return;
+                }
+                
                 _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.RaceStep;
                 EcsEntity goToRequestEntity = _world.NewEntity();
                 goToRequestEntity.Get<StartRaceRequest>();

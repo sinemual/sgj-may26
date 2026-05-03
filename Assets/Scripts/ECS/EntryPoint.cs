@@ -130,7 +130,7 @@ namespace Client
                 .Add(new TadpoleBotGoSystem())
                 .Add(new TadpoleThinkingSystem())
                 .Add(new TadpoleMovementSystem())
-                .Add(new TadpoleDamageSystem())
+                .Add(new TadpoleMovementCheckerSystem())
                 .Add(new TadpoleRotationSystem())
                 //---Tadpole In Jar---
                 //---Race---
@@ -204,6 +204,7 @@ namespace Client
                 .Add(new VelocityMovingSystem())
                 .Add(new VelocityPositionMovingSystem())
                 .Add(new PhysicForceAddSystem())
+                .Add(new TadpoleDamageSystem())
                 .Add(new FinishTriggerSystem())
                 //---OneFrames---
                 .OneFrame<OnCollisionEnterEvent>()
@@ -287,6 +288,7 @@ namespace Client
                 .Add(new TimerSystem<TimerToLoot>())
                 .Add(new TimerSystem<ThinkingTimer>())
                 .Add(new TimerSystem<DespawnTimer>())
+                .Add(new TimerSystem<CheckTimer>())
                 .Add(new TimerSystem<ShowingEarningViewTimer>());
         }
 

@@ -48,8 +48,8 @@ namespace Client
                 else
                     GenerateTadpoleBot(ref entity, ref stats);
 
-                if (!_raceFilter.IsEmpty() && entity.Has<PlayerTag>())
-                    entity.Get<TadpoleProvider>().Arrow.SetActive(true);
+                /*if (!_raceFilter.IsEmpty() && entity.Has<PlayerTag>())
+                    entity.Get<TadpoleProvider>().Arrow.SetActive(true);*/
 
                 entity.Get<CurrentPoint>().Value = 0;
                 entity.Get<Health>().Value = stats.Value[StatType.Health].GetValue();

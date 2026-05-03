@@ -34,6 +34,7 @@ namespace Client
             
             _audioService.Play(Sounds.MusicGameplaySound);
             _ui.ShowScreen<GameScreen>();
+            _ui.GetScreen<GameScreen>().UpdateDayText(_data.SaveData.Day);
             _ui.ShowScreen<HomeScreen>();
             _ui.ShowScreen<IntroScreen>();
             _ui.ReorderScreens();

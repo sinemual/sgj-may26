@@ -19,9 +19,9 @@ namespace Client
 
         public void Run()
         {
-            if(_raceFilter.IsEmpty())
+            if (_raceFilter.IsEmpty())
                 return;
-            
+
             foreach (var idx in _filter)
             {
                 ref var entity = ref _filter.GetEntity(idx);
@@ -34,15 +34,23 @@ namespace Client
                 random = random.SetY(0.0f);
                 Vector3 target = entityGo.transform.position + random;
 
+                /*Debug.Log($"{stats[StatType.Intelligence].GetValue()} > {Random.value}");
+                if (stats[StatType.Intelligence].GetValue() > Random.value)*/
                 if (entity.Has<LureRequest>())
                 {
                     ref var goEventPosition = ref entity.Get<LureRequest>().Position;
                     target = goEventPosition;
                     entity.Del<LureRequest>();
                 }
+                else if (stats[StatType.Intelligence].GetValue() > 0.5f)
+                {
+                    target = entity.Get<Target>().Value;
+                }
 
                 entity.Get<Target>().Value = target;
-                entity.Get<Timer<ThinkingTimer>>().Value = (1.0f - stats[StatType.Intelligence].GetValue()) * _data.BalanceData.ThinkingTimeMultiplier;
+                var thinkingTime = (1.0f - stats[StatType.Intelligence].GetValue()) * _data.BalanceData.ThinkingTimeMultiplier;
+                Debug.Log($"thinkingTime {thinkingTime}");
+                entity.Get<Timer<ThinkingTimer>>().Value = thinkingTime;
 
                 if (entity.Has<PlayerTag>()) // debug
                     _data.SceneData.RealTarget.position = target;

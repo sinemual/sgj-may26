@@ -29,7 +29,7 @@ namespace Client
                 ref var saveId = ref entity.Get<SaveId>().Value;
                 ref var stats = ref entity.Get<Stats>().Value;
 
-                Debug.Log($"UpdateTadpoleViewRequest");
+                //Debug.Log($"UpdateTadpoleViewRequest");
                 var saveData = _data.SaveData.TadpoleSaveData[saveId];
                 var data = _data.StaticData.TadpoleDataByType[saveData.TadpoleType];
 
@@ -40,16 +40,24 @@ namespace Client
                     tadpole.TadpoleMeshRenderers[i].material.color = _data.StaticData.ColorByValue[stats[StatType.Color].GetValue()];
                 tadpole.CaviarMeshRenderer.material.color = _data.StaticData.ColorByValue[stats[StatType.Color].GetValue()];
 
-                if (entity.Has<PlayerTag>())
+                /*if (entity.Has<PlayerTag>())
                 {
                     Debug.Log($"stats[StatType.Color].GetValue(): {stats[StatType.Color].GetValue()}");
                     Debug.Log($"stats[StatType.Fat].GetValue(): {stats[StatType.Fat].GetValue()}");
-                }
+                }*/
 
-                tadpoleGo.transform.localScale = Vector3.one * stats[StatType.Fat].GetValue();
+                var fatScale = Mathf.Clamp(stats[StatType.Fat].GetValue(), 0.0f, 2.0f);
+                tadpoleGo.transform.localScale = Vector3.one * fatScale;
 
-                if (saveData.IsDead)
+                if (entity.Has<PlayerTag>() && saveData.IsDead)
+                {
+                    entity.Get<DeadState>();
+                    entity.Get<TadpoleProvider>().CaviarMetamorphosisStepView.SetActive(false);
+                    entity.Get<TadpoleProvider>().TadpoleMetamorphosisStepView.SetActive(false);
+                    _ui.GetScreen<HomeScreen>().UpdateNumberText(" ");
+                    _ui.GetScreen<HomeScreen>().UpdateTadpoleNameText("Empty");
                     animator.SetTrigger(Animations.IsDie);
+                }
 
                 if (!entity.Has<PlayerTag>())
                 {

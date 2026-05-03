@@ -1,6 +1,7 @@
 ﻿using Client.Data;
 using Client.Data.Core;
 using Client.Factories;
+using Client.Infrastructure.UI;
 using Leopotam.Ecs;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace Client
         private SharedData _data;
         private EcsWorld _world;
         private PrefabFactory _prefabFactory;
+        private UserInterface _ui;
 
         private EcsFilter<HomeProvider>.Exclude<InitedMarker> _filter;
 
@@ -26,9 +28,8 @@ namespace Client
                 {
                     if (_data.SaveData.TadpoleByJar[i] != -1)
                     {
-                        var data =
-                            _data.StaticData.TadpoleDataByType[_data.SaveData.TadpoleSaveData[_data.SaveData.TadpoleByJar[i]].TadpoleType];
-                        
+                        var saveData = _data.SaveData.TadpoleSaveData[_data.SaveData.TadpoleByJar[i]];
+                        var data = _data.StaticData.TadpoleDataByType[saveData.TadpoleType];
                         
                         EcsEntity playerEntity = _prefabFactory.Spawn(data.Prefab, spawnPoints[i].position, spawnPoints[i].rotation, entityGo.transform);
                         playerEntity.Get<TadpoleDataComponent>().Value = data;
@@ -37,6 +38,15 @@ namespace Client
                         playerEntity.Get<UpdateTadpoleViewRequest>();
                         playerEntity.Get<TadpoleProvider>().Collider.enabled = false;
                         playerEntity.Get<AnimatorProvider>().Value.SetTrigger(Animations.IsInJar);
+                        if (saveData.IsDead)
+                        {
+                            playerEntity.Get<DeadState>();
+                            playerEntity.Get<TadpoleProvider>().CaviarMetamorphosisStepView.SetActive(false);
+                            playerEntity.Get<TadpoleProvider>().TadpoleMetamorphosisStepView.SetActive(false);
+                            _ui.GetScreen<HomeScreen>().UpdateNumberText(" ");
+                            _ui.GetScreen<HomeScreen>().UpdateTadpoleNameText("Empty");
+                            _data.SaveData.TadpoleByJar[i] = -1;
+                        }
                     }
                 }
                 

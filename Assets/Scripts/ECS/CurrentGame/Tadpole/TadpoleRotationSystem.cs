@@ -30,11 +30,11 @@ namespace Client
 
                 Vector3 moveDirection = (target - entityGo.transform.position).normalized;
                 
-                if (entityRb.linearVelocity.magnitude > 0.1f)
+                if (entityRb.linearVelocity.magnitude > 0.01f)
                 {
                     var fatPenalty = stats[StatType.Fat].GetValue() *_data.BalanceData.FatPenaltyMultiplier;
                     var rotateSpeed = stats[StatType.Speed].GetValue() * _data.BalanceData.RotateSpeedMultiplier - fatPenalty;
-
+                    //Debug.Log($"rotateSpeed {rotateSpeed}");
                     Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
                     entityRb.MoveRotation(Quaternion.RotateTowards(entityRb.rotation, targetRotation, rotateSpeed * Time.fixedDeltaTime));
                 }

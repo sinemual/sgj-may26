@@ -24,12 +24,6 @@ namespace Client
             {
                 ref var entity = ref _filter.GetEntity(idx);
 
-                if (_data.RuntimeData.CurrentTadpole == -1 || _data.SaveData.TadpoleSaveData[_data.RuntimeData.CurrentTadpole].MetamorphosisStep == 0)
-                {
-                    entity.Del<StartRaceRequest>();
-                    continue;
-                }
-
                 _prefabFactory.Despawn(ref _currentStepFilter.GetEntity(0));
                 EcsEntity stepEntity =_prefabFactory.Spawn(_data.StaticData.Levels[(int)_data.RuntimeData.RaceStep].Prefab,
                     Vector3.zero, Quaternion.identity);

@@ -40,7 +40,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd01a2be1587dc349a7f580a45a33f02, type: 2}
   - {fileID: 11400000, guid: cefa2f895f2d86f44b4cd8ec30409c6d, type: 2}
   - {fileID: 11400000, guid: 5d4c49dde9c318f4aae560e05313ed45, type: 2}
-  LevelLooped: {fileID: 11400000, guid: 3e99616bc3f54384bb4214083a45aa10, type: 2}
+  LevelLooped: {fileID: 0}
   ColorByValue:
     _serializedList:
     - Key: 0
@@ -63,17 +63,19 @@ MonoBehaviour:
       Value: {r: 1, g: 1, b: 1, a: 1}
     - Key: 0.9
       Value: {r: 0.61960787, g: 0.6, b: 1, a: 1}
+    - Key: 1
+      Value: {r: 1, g: 0.8175961, b: 0, a: 1}
   BotColor: {r: 0.28930807, g: 0.28930807, b: 0.28930807, a: 1}
   TutorialData:
   - {fileID: 11400000, guid: 5cb533bd231c7f7418a7aaf158fe9df0, type: 2}
   TadpoleData:
   - {fileID: 11400000, guid: 46fed4d3a11befa4e91968bc232740b6, type: 2}
   ItemData:
-  - {fileID: 11400000, guid: 674f55d637d2bae439ca8451859649e8, type: 2}
-  - {fileID: 11400000, guid: 3263dba21531c274da67f2b89761cf9f, type: 2}
-  - {fileID: 11400000, guid: 2e1f121cc9f3297418bda0b0639c5251, type: 2}
-  - {fileID: 11400000, guid: 3ae5a544ce2af334a8569bc837a4234f, type: 2}
   - {fileID: 11400000, guid: c6700d8ea3b8d7141a4b4fdc9e7b86e0, type: 2}
+  - {fileID: 11400000, guid: 3ae5a544ce2af334a8569bc837a4234f, type: 2}
+  - {fileID: 11400000, guid: 2e1f121cc9f3297418bda0b0639c5251, type: 2}
+  - {fileID: 11400000, guid: 3263dba21531c274da67f2b89761cf9f, type: 2}
+  - {fileID: 11400000, guid: 674f55d637d2bae439ca8451859649e8, type: 2}
   GroundTag: 
   RaycastMask:
     serializedVersion: 2

@@ -35,9 +35,9 @@ MonoBehaviour:
   <BotRandomTargetRadius>k__BackingField: 0
   <BotCheckPointRadius>k__BackingField: 3
   <CaviarMoveSpeed>k__BackingField: 0.59
-  <DamageSpeedTrasholdValue>k__BackingField: 1
-  <SpawnReloadingTime>k__BackingField: 5
-  <DamageSpeedMultiplier>k__BackingField: 1
+  <DamageSpeedTrasholdValue>k__BackingField: 3
+  <SpawnReloadingTime>k__BackingField: 3
+  <DamageSpeedMultiplier>k__BackingField: 0.1
   <SpawnIngredientChanceByType>k__BackingField:
     _serializedList:
     - Key: 7

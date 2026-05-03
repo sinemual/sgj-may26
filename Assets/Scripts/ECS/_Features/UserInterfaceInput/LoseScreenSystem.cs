@@ -25,8 +25,12 @@ namespace Client
             _ui.GetScreen<LoseScreen>().GoToHomeButtonClick += () =>
             {
                 _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.HomeStep;
+                
                 _ui.HideScreen<LoseScreen>();
                 _world.NewEntity().Get<FlushRequest>();
+                EcsEntity goToRequestEntity = _world.NewEntity();
+                goToRequestEntity.Get<GoToHomeRequest>();
+                goToRequestEntity.Get<DespawnLevelRequest>();
                 _audioService.Play(Sounds.UiClickSound);
             };
         }

@@ -38,11 +38,15 @@ namespace Client
                 {
                     _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.GameEnd;
                     _ui.ShowScreen<OutroScreen>();
+                    _data.RuntimeData.RaceStep = 0;
                 }
                 else
                 {
                     _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = GameStateType.HomeStep;
                 }
+                EcsEntity goToRequestEntity = _world.NewEntity();
+                goToRequestEntity.Get<GoToHomeRequest>();
+                goToRequestEntity.Get<DespawnLevelRequest>();
             };
 
             _ui.GetScreen<WinScreen>().NextStepButtonClick += () =>

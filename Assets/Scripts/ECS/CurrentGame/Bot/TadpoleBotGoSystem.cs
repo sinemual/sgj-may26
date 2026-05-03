@@ -29,13 +29,17 @@ namespace Client
                     ref var entityRb = ref entity.Get<RigidbodyProvider>().Value;
                     ref var currentPoint = ref entity.Get<CurrentPoint>().Value;
 
-                    if (currentPoint >= botPath.Length - 1)
+                    if (currentPoint >= botPath.Length)
                         return;
+                    //Debug.Log($"currentPoint {currentPoint}");
 
                     if (Vector3.Distance(botPath[currentPoint].position, entityGo.transform.position) <
                         _data.BalanceData.BotCheckPointRadius)
                         currentPoint += 1;
 
+                    if (currentPoint >= botPath.Length)
+                        return;
+                    
                     Vector3 random = Random.onUnitSphere * _data.BalanceData.BotRandomTargetRadius;
                     random = random.SetY(0.0f);
                     Vector3 target = botPath[currentPoint].position + random;

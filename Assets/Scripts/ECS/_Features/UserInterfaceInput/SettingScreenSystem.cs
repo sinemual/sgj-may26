@@ -54,6 +54,7 @@ namespace Client
                 //Time.timeScale = 1.0f;
                 Debug.Log($"CloseButtonClick");
                 _ui.HideScreen<SettingsScreen>();
+                _world.NewEntity().Get<SetGameStateRequest>().NewGameStateType = _data.RuntimeData.PreviousGameStateType;
                 _audioService.Play(Sounds.UiClickSound);
             };
         }

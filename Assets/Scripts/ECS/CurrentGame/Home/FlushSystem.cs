@@ -16,9 +16,13 @@ namespace Client
 
         private EcsFilter<FlushRequest> _filter;
         private EcsFilter<TadpoleProvider> _tadpoleFilter;
+        private EcsFilter<HomeProvider,InitedMarker> _homeFilter;
 
         public void Run()
         {
+            if(_homeFilter.IsEmpty())
+                return;
+            
             foreach (var idx in _filter)
             {
                 ref var entity = ref _filter.GetEntity(idx);

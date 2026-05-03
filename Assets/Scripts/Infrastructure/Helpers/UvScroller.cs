@@ -31,6 +31,7 @@ public class UvScroller : MonoBehaviour
         if (!_isWorking)
             return;
         _offset.y += _speedY * Time.deltaTime;
+        _offset.x += _speedX * Time.deltaTime;
         _targetMaterial.mainTextureOffset = _offset;
     }
 
